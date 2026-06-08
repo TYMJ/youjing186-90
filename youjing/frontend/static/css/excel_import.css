@@ -1,0 +1,11 @@
+.excel-import-form .el-form-item__label{
+    font-size: 15px!important;
+}
+.excel-import-form .el-form-item {
+    margin-bottom:8px;
+}
+
+.supplier_visit_class {
+    background-color: #d5f7d5!important;
+    /* color: #fff!important; */
+}

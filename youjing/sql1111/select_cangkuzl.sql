@@ -1,0 +1,1 @@
+select * from cangkuzl where ckmc=:ckmc

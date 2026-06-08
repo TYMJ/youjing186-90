@@ -1,0 +1,74 @@
+.products_info_list_search_container {
+  background-color: #f7f8fa;
+  min-height: 100vh;
+}
+.products_info_list_section_header {
+  padding: 4px;
+  text-align: center;
+  color: #969799;
+  font-size: 14px;
+  background: #f2f2f2;
+}
+.van-divider {
+  margin: 2px 0;
+}
+.products_info_list_product_item_card {
+  background: #fff;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ebedf0;
+}
+.products_info_list_product_main_content {
+  display: flex;
+  padding: 10px;
+}
+.products_info_list_product_image_box {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid #f0f0f0;
+}
+.products_info_list_exclusive_tag {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #ee0a24;
+  color: white;
+  font-size: 10px;
+  padding: 2px 6px;
+  border-bottom-right-radius: 8px;
+  z-index: 1;
+}
+.products_info_list_product_info_box {
+  flex: 1;
+  padding-left: 15px;
+}
+.products_info_list_info_row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #fafafa;
+}
+.products_info_list_info_row .products_info_list_label {
+  color: #646566;
+  font-size: 14px;
+}
+.products_info_list_info_row .products_info_list_value {
+  color: #323233;
+  font-weight: 500;
+  font-size: 14px;
+}
+/* 调整折叠组件样式以匹配图片 */
+.products_info_list_product_info_box .van-collapse-item__title {
+  padding: 10px 0;
+  font-size: 14px;
+  color: #646566;
+}
+.products_info_list_product_info_box .van-collapse-item__content {
+  padding: 5px 0;
+  font-size: 13px;
+  color: #969799;
+  line-height: 1.6;
+}

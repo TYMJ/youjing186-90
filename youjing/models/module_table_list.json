@@ -1,0 +1,2985 @@
+[
+    {
+        "name": "公海客户",
+        "table_name": "kh",
+        "id": "2sgj1s77"
+    },
+    {
+        "name": "公海客户.联系人表",
+        "table_name": "khlxr",
+        "id": "dx_dv0ps",
+        "mid": "2sgj1s77"
+    },
+    {
+        "name": "公海客户.查看人员清单",
+        "table_name": "kh_xn1",
+        "id": "laix60s9",
+        "mid": "2sgj1s77"
+    },
+    {
+        "name": "客户资料",
+        "table_name": "kh",
+        "id": "yp76j8lh"
+    },
+    {
+        "name": "客户资料.联系人表",
+        "table_name": "khlxr",
+        "id": "2odejppg",
+        "mid": "yp76j8lh"
+    },
+    {
+        "name": "客户资料.客人采购习惯分析",
+        "table_name": "khsheet7",
+        "id": "j0z6ui8p",
+        "mid": "yp76j8lh"
+    },
+    {
+        "name": "客户资料.抬头信息",
+        "table_name": "khttxx",
+        "id": "56cc25qb",
+        "mid": "yp76j8lh"
+    },
+    {
+        "name": "客户资料.出货汇总",
+        "table_name": "khsheet2",
+        "id": "rfeal1wa",
+        "mid": "yp76j8lh"
+    },
+    {
+        "name": "客户资料.开户银行",
+        "table_name": "customersbillto",
+        "id": "kh145gw5",
+        "mid": "yp76j8lh"
+    },
+    {
+        "name": "客户资料.延期信息",
+        "table_name": "khsheet6",
+        "id": "gjwcytgx",
+        "mid": "yp76j8lh"
+    },
+    {
+        "name": "客户资料.历史业务模式标签",
+        "table_name": "khsheet8",
+        "id": "tpllq4au",
+        "mid": "yp76j8lh"
+    },
+    {
+        "name": "客户资料.查看人员清单",
+        "table_name": "kh_xn1",
+        "id": "mmj2owf2",
+        "mid": "yp76j8lh"
+    },
+    {
+        "name": "客户资料.接单情况表",
+        "table_name": "kh_xn2",
+        "id": "l6quyopd",
+        "mid": "yp76j8lh"
+    },
+    {
+        "name": "客户资料.出货情况表",
+        "table_name": "kh_xn3",
+        "id": "foy4m95s",
+        "mid": "yp76j8lh"
+    },
+    {
+        "name": "客户资料.指定货代",
+        "table_name": "customerforwarder",
+        "id": "pcjivt50",
+        "mid": "yp76j8lh"
+    },
+    {
+        "name": "客户资料.提成明细表",
+        "table_name": "khsheet5",
+        "id": "ww4yrjqz",
+        "mid": "yp76j8lh"
+    },
+    {
+        "name": "客户资料.出货情况",
+        "table_name": "khsheet1",
+        "id": "ur4em0gd",
+        "mid": "yp76j8lh"
+    },
+    {
+        "name": "客户资料.收件信息",
+        "table_name": "kh_xn4",
+        "id": "dcu95x62",
+        "mid": "yp76j8lh"
+    },
+    {
+        "name": "客户资料.发件信息",
+        "table_name": "kh_xn5",
+        "id": "oh8ye99v",
+        "mid": "yp76j8lh"
+    },
+    {
+        "name": "客户资料.中信保信息",
+        "table_name": "customersinosurebuyer",
+        "id": "qltcs6x6",
+        "mid": "yp76j8lh"
+    },
+    {
+        "name": "业务询价",
+        "table_name": "khxj",
+        "id": "m5bar6qm"
+    },
+    {
+        "name": "业务询价.产品资料",
+        "table_name": "khxjsheet",
+        "id": "c22kqoyj",
+        "mid": "m5bar6qm"
+    },
+    {
+        "name": "业务询价.询价采购",
+        "table_name": "khxjsheet1",
+        "id": "jodgiwek",
+        "mid": "m5bar6qm"
+    },
+    {
+        "name": "业务询价.询价采购2",
+        "table_name": "ywxj_xn1",
+        "id": "ps1xkvoa",
+        "mid": "m5bar6qm"
+    },
+    {
+        "name": "客户报价",
+        "table_name": "bj",
+        "id": "z0w13t0q"
+    },
+    {
+        "name": "客户报价.产品资料",
+        "table_name": "bjsheet",
+        "id": "bl5sztrs",
+        "mid": "z0w13t0q"
+    },
+    {
+        "name": "客户报价.修改记录",
+        "table_name": "bjsheet1",
+        "id": "ui4st68a",
+        "mid": "z0w13t0q"
+    },
+    {
+        "name": "合同申请",
+        "table_name": "htsq",
+        "id": "sjx9mwgq"
+    },
+    {
+        "name": "合同申请.采购清单",
+        "table_name": "htsq_xn1",
+        "id": "4o80m1fh",
+        "mid": "sjx9mwgq"
+    },
+    {
+        "name": "合同申请.出运清单",
+        "table_name": "htsq_xn2",
+        "id": "axp6det3",
+        "mid": "sjx9mwgq"
+    },
+    {
+        "name": "合同申请.付款清单",
+        "table_name": "htsq_xn3",
+        "id": "fw4bwpli",
+        "mid": "sjx9mwgq"
+    },
+    {
+        "name": "合同申请.收汇清单",
+        "table_name": "htsq_xn4",
+        "id": "8g3ebja5",
+        "mid": "sjx9mwgq"
+    },
+    {
+        "name": "外销合同",
+        "table_name": "wxht",
+        "id": "x41o2yih"
+    },
+    {
+        "name": "外销合同.产品资料",
+        "table_name": "wxhtsheet",
+        "id": "ijcvpsfb",
+        "mid": "x41o2yih"
+    },
+    {
+        "name": "外销合同.费用清单",
+        "table_name": "wxhtsheet4",
+        "id": "bja8m47b",
+        "mid": "x41o2yih"
+    },
+    {
+        "name": "外销合同.采购数量更新",
+        "table_name": "wxht_xn1",
+        "id": "t7shpe7e",
+        "mid": "x41o2yih"
+    },
+    {
+        "name": "外销合同.修改记录",
+        "table_name": "wxhtsheet1",
+        "id": "lqzwh9b7",
+        "mid": "x41o2yih"
+    },
+    {
+        "name": "外销合同.出运汇总",
+        "table_name": "wxhtsheet2",
+        "id": "0jre7s71",
+        "mid": "x41o2yih"
+    },
+    {
+        "name": "采购计划",
+        "table_name": "cgjh",
+        "id": "ig8udzke"
+    },
+    {
+        "name": "采购计划.产品资料",
+        "table_name": "cgjhsheet",
+        "id": "5roob031",
+        "mid": "ig8udzke"
+    },
+    {
+        "name": "采购计划.额外费用",
+        "table_name": "cyxqsheet2",
+        "id": "j3lxv42r",
+        "mid": "ig8udzke"
+    },
+    {
+        "name": "采购计划.完成资料",
+        "table_name": "cgjhsheet3",
+        "id": "j6ssvmuu",
+        "mid": "ig8udzke"
+    },
+    {
+        "name": "客户索赔",
+        "table_name": "khsp",
+        "id": "tyytejxw"
+    },
+    {
+        "name": "客户索赔.索赔详细",
+        "table_name": "khspsheet1",
+        "id": "0fa1z5m2",
+        "mid": "tyytejxw"
+    },
+    {
+        "name": "客户索赔.赔款进展表",
+        "table_name": "khspsheet",
+        "id": "vzuibfz4",
+        "mid": "tyytejxw"
+    },
+    {
+        "name": "证书下载",
+        "table_name": "zsxz",
+        "id": "sct4p0p7"
+    },
+    {
+        "name": "定单审批",
+        "table_name": "ddsp",
+        "id": "m4ike00z"
+    },
+    {
+        "name": "审批委托",
+        "table_name": "spwt",
+        "id": "joxfyzxx"
+    },
+    {
+        "name": "审批委托.详细情况",
+        "table_name": "spwtsheet",
+        "id": "ari7xcoh",
+        "mid": "joxfyzxx"
+    },
+    {
+        "name": "客户来访",
+        "table_name": "khlf",
+        "id": "j1rf27tv"
+    },
+    {
+        "name": "客户来访.来访费用",
+        "table_name": "khlfsheet",
+        "id": "42dha9qs",
+        "mid": "j1rf27tv"
+    },
+    {
+        "name": "客户来访.来访选样",
+        "table_name": "khlfsheet3",
+        "id": "hfblrgpf",
+        "mid": "j1rf27tv"
+    },
+    {
+        "name": "客户来访.产品资料",
+        "table_name": "khlfsheet2",
+        "id": "tdjzy66m",
+        "mid": "j1rf27tv"
+    },
+    {
+        "name": "客户拜访",
+        "table_name": "khbf",
+        "id": "004p6p9r"
+    },
+    {
+        "name": "客户拜访.拜访名单",
+        "table_name": "khbfsheet2",
+        "id": "dwe0x3to",
+        "mid": "004p6p9r"
+    },
+    {
+        "name": "客户拜访.行程明细",
+        "table_name": "khbfsheet1",
+        "id": "c2rpfyd6",
+        "mid": "004p6p9r"
+    },
+    {
+        "name": "客户拜访.拜访费用",
+        "table_name": "khbfsheet",
+        "id": "qoobhi30",
+        "mid": "004p6p9r"
+    },
+    {
+        "name": "放单申请",
+        "table_name": "fdsq1",
+        "id": "bgxik6cc"
+    },
+    {
+        "name": "放单申请.放单清单",
+        "table_name": "fdsq1sheet",
+        "id": "23jbiqvr",
+        "mid": "bgxik6cc"
+    },
+    {
+        "name": "放单申请.清关资料",
+        "table_name": "fdsq1sheet2",
+        "id": "e6p56k33",
+        "mid": "bgxik6cc"
+    },
+    {
+        "name": "放单申请.单证人员",
+        "table_name": "fdsq1sheet1",
+        "id": "qswsdg53",
+        "mid": "bgxik6cc"
+    },
+    {
+        "name": "脚本日志",
+        "table_name": "ScriptLog",
+        "id": "1yt7jswr"
+    },
+    {
+        "name": "会展管理",
+        "table_name": "hzhgl",
+        "id": "zloje1vg"
+    },
+    {
+        "name": "会展管理.跟进信息",
+        "table_name": "hzhglgjxx",
+        "id": "xmrg2rfu",
+        "mid": "zloje1vg"
+    },
+    {
+        "name": "月度出货统计",
+        "table_name": "ydchtj",
+        "id": "i6rtji2p"
+    },
+    {
+        "name": "月度出货统计.出货详情",
+        "table_name": "ydchtjsheet",
+        "id": "a6iq88ps",
+        "mid": "i6rtji2p"
+    },
+    {
+        "name": "客户权限",
+        "table_name": "khsheet3",
+        "id": "ef6auj8n"
+    },
+    {
+        "name": "专业产品",
+        "table_name": "cjcp",
+        "id": "x1ih4k62"
+    },
+    {
+        "name": "专业产品.工厂报价",
+        "table_name": "zycjcpsheet",
+        "id": "adqpb0r8",
+        "mid": "x1ih4k62"
+    },
+    {
+        "name": "专属产品",
+        "table_name": "zscp",
+        "id": "lul1gtm9"
+    },
+    {
+        "name": "专属产品.工厂报价",
+        "table_name": "zscpsheet",
+        "id": "iz5rfyg6",
+        "mid": "lul1gtm9"
+    },
+    {
+        "name": "专属产品.产品详情",
+        "table_name": "zscpsheet2",
+        "id": "85dj4kxs",
+        "mid": "lul1gtm9"
+    },
+    {
+        "name": "专属产品.开模信息",
+        "table_name": "zscpsheet3",
+        "id": "4hdqwhb4",
+        "mid": "lul1gtm9"
+    },
+    {
+        "name": "专属产品.特殊毛利率",
+        "table_name": "zscpsheet1",
+        "id": "55jhioov",
+        "mid": "lul1gtm9"
+    },
+    {
+        "name": "专属产品.对应工厂",
+        "table_name": "zscpsheet5",
+        "id": "14p5d2jt",
+        "mid": "lul1gtm9"
+    },
+    {
+        "name": "专属产品.共享业务",
+        "table_name": "zscpsheet6",
+        "id": "vzqpczyy",
+        "mid": "lul1gtm9"
+    },
+    {
+        "name": "专属产品.客人条码资料",
+        "table_name": "zscpsheet7",
+        "id": "iosidh39",
+        "mid": "lul1gtm9"
+    },
+    {
+        "name": "潜在工厂",
+        "table_name": "ozycs",
+        "id": "8r4htva6"
+    },
+    {
+        "name": "潜在工厂.联系人表",
+        "table_name": "ozycslxr",
+        "id": "t3gmiqpa",
+        "mid": "8r4htva6"
+    },
+    {
+        "name": "潜在工厂.工厂评分",
+        "table_name": "ozycscpxx",
+        "id": "01w2o1yb",
+        "mid": "8r4htva6"
+    },
+    {
+        "name": "潜在工厂.工厂产品",
+        "table_name": "ozycssheet2",
+        "id": "wtqjrtsy",
+        "mid": "8r4htva6"
+    },
+    {
+        "name": "专业工厂",
+        "table_name": "zycs",
+        "id": "exp4gryb"
+    },
+    {
+        "name": "专业工厂.结算变更",
+        "table_name": "zycssheet4",
+        "id": "f30uyz3i",
+        "mid": "exp4gryb"
+    },
+    {
+        "name": "专业工厂.联系人表",
+        "table_name": "zycslxr",
+        "id": "12l20y1h",
+        "mid": "exp4gryb"
+    },
+    {
+        "name": "专业工厂.工厂评分",
+        "table_name": "zycscpxx",
+        "id": "c791vffs",
+        "mid": "exp4gryb"
+    },
+    {
+        "name": "专业工厂.工厂产品",
+        "table_name": "zycssheet2",
+        "id": "gk183kkr",
+        "mid": "exp4gryb"
+    },
+    {
+        "name": "专业工厂.可修改人员",
+        "table_name": "zycssheet3",
+        "id": "bclgk3gt",
+        "mid": "exp4gryb"
+    },
+    {
+        "name": "专业工厂.开模信息表",
+        "table_name": "zycssheet1",
+        "id": "kzjdu90d",
+        "mid": "exp4gryb"
+    },
+    {
+        "name": "专业工厂.工厂赔款详情",
+        "table_name": "zycssheet",
+        "id": "oaismk0l",
+        "mid": "exp4gryb"
+    },
+    {
+        "name": "专业工厂.附件信息",
+        "table_name": "zycsfjxx",
+        "id": "5p1t2m6p",
+        "mid": "exp4gryb"
+    },
+    {
+        "name": "工厂拜访",
+        "table_name": "gcbf",
+        "id": "3pq3k6qf"
+    },
+    {
+        "name": "工厂拜访.拜访名单",
+        "table_name": "gcbfsheet2",
+        "id": "yvuk4jpj",
+        "mid": "3pq3k6qf"
+    },
+    {
+        "name": "工厂拜访.行程明细",
+        "table_name": "gcbfsheet1",
+        "id": "6dwwti26",
+        "mid": "3pq3k6qf"
+    },
+    {
+        "name": "工厂拜访.拜访费用",
+        "table_name": "gcbfsheet",
+        "id": "2e2fc8im",
+        "mid": "3pq3k6qf"
+    },
+    {
+        "name": "采购报价",
+        "table_name": "cgbj",
+        "id": "5vu5k3l6"
+    },
+    {
+        "name": "采购报价.产品资料",
+        "table_name": "cgbjsheet",
+        "id": "51a0u352",
+        "mid": "5vu5k3l6"
+    },
+    {
+        "name": "采购合同",
+        "table_name": "cght",
+        "id": "wq78t5yt"
+    },
+    {
+        "name": "采购合同.产品资料",
+        "table_name": "cghtsheet",
+        "id": "o1o63xcd",
+        "mid": "wq78t5yt"
+    },
+    {
+        "name": "采购合同.查看人员",
+        "table_name": "cghtsheet3",
+        "id": "m4p7kc7l",
+        "mid": "wq78t5yt"
+    },
+    {
+        "name": "采购合同.修改记录",
+        "table_name": "cghtsheet1",
+        "id": "qpwsvlma",
+        "mid": "wq78t5yt"
+    },
+    {
+        "name": "采购合同.费用清单",
+        "table_name": "cghtsheet4",
+        "id": "wyfo7fx1",
+        "mid": "wq78t5yt"
+    },
+    {
+        "name": "采购跟单",
+        "table_name": "cggd",
+        "id": "5o760d54"
+    },
+    {
+        "name": "采购跟单.产品资料",
+        "table_name": "cggdsheet",
+        "id": "g2460xve",
+        "mid": "5o760d54"
+    },
+    {
+        "name": "采购跟单.进仓资料",
+        "table_name": "cggdsheet1",
+        "id": "gk77755m",
+        "mid": "5o760d54"
+    },
+    {
+        "name": "采购跟单.历史进仓资料",
+        "table_name": "cggdsheet2",
+        "id": "z1oy6zg7",
+        "mid": "5o760d54"
+    },
+    {
+        "name": "采购跟单.预付款申请",
+        "table_name": "cggdsheet7",
+        "id": "eill5pyj",
+        "mid": "5o760d54"
+    },
+    {
+        "name": "采购跟单.预配柜清单",
+        "table_name": "cggdsheet6",
+        "id": "d8qb6w8j",
+        "mid": "5o760d54"
+    },
+    {
+        "name": "采购跟单.出库明细",
+        "table_name": "cggdsheet3",
+        "id": "keb43r13",
+        "mid": "5o760d54"
+    },
+    {
+        "name": "采购跟单.查看人员",
+        "table_name": "cggdsheet4",
+        "id": "ahvttb3e",
+        "mid": "5o760d54"
+    },
+    {
+        "name": "采购跟单.费用清单",
+        "table_name": "cggdsheet5",
+        "id": "vjcex0i3",
+        "mid": "5o760d54"
+    },
+    {
+        "name": "出运计划",
+        "table_name": "chyjh",
+        "id": "xobvf67p"
+    },
+    {
+        "name": "出运计划.产品资料",
+        "table_name": "chyjhsheet",
+        "id": "bwiar05j",
+        "mid": "xobvf67p"
+    },
+    {
+        "name": "出运计划.费用清单",
+        "table_name": "chyjhsheet5",
+        "id": "2sw2tva9",
+        "mid": "xobvf67p"
+    },
+    {
+        "name": "出运计划.装箱资料",
+        "table_name": "chyjhsheet1",
+        "id": "aaju85at",
+        "mid": "xobvf67p"
+    },
+    {
+        "name": "出运计划.分箱资料",
+        "table_name": "chyjhsheet2",
+        "id": "i33k06fy",
+        "mid": "xobvf67p"
+    },
+    {
+        "name": "出运计划.产品合并",
+        "table_name": "chyjhsheet4",
+        "id": "qv9bd2x3",
+        "mid": "xobvf67p"
+    },
+    {
+        "name": "出运计划.定金明细",
+        "table_name": "cyjh_xn1",
+        "id": "5jlfc888",
+        "mid": "xobvf67p"
+    },
+    {
+        "name": "出运计划.补报信息",
+        "table_name": "chyjhsheet6",
+        "id": "ddo180fo",
+        "mid": "xobvf67p"
+    },
+    {
+        "name": "出运计划.出运变更详情",
+        "table_name": "chyjhsheet10",
+        "id": "o_a9gp5p",
+        "mid": "xobvf67p"
+    },
+    {
+        "name": "验货报告",
+        "table_name": "yanhuobaog",
+        "id": "w14fvv26"
+    },
+    {
+        "name": "验货报告.产品资料",
+        "table_name": "yanhuobaogcp",
+        "id": "r82i0mli",
+        "mid": "w14fvv26"
+    },
+    {
+        "name": "验货报告.产品检验情况",
+        "table_name": "yanhuobaogcp1",
+        "id": "0v7abbj5",
+        "mid": "w14fvv26"
+    },
+    {
+        "name": "验货报告.验货图片",
+        "table_name": "yanhuobaogcptp",
+        "id": "7edspdoi",
+        "mid": "w14fvv26"
+    },
+    {
+        "name": "验货报告.查看人员",
+        "table_name": "yanhuobaogc2",
+        "id": "gsyzhlht",
+        "mid": "w14fvv26"
+    },
+    {
+        "name": "工厂开模",
+        "table_name": "gckm",
+        "id": "uxfcf6ad"
+    },
+    {
+        "name": "工厂开模.开模信息",
+        "table_name": "gckmsheet1",
+        "id": "0rqwmy5c",
+        "mid": "uxfcf6ad"
+    },
+    {
+        "name": "工厂开模.开模情况",
+        "table_name": "gckmsheet",
+        "id": "t5jj45c0",
+        "mid": "uxfcf6ad"
+    },
+    {
+        "name": "工厂索赔",
+        "table_name": "gongcsp",
+        "id": "a2hlp22o"
+    },
+    {
+        "name": "工厂索赔.赔款明细",
+        "table_name": "gongcspsheet1",
+        "id": "ko8dr8p0",
+        "mid": "a2hlp22o"
+    },
+    {
+        "name": "工厂索赔.扣款详情",
+        "table_name": "gongcspsheet",
+        "id": "ypvlddqv",
+        "mid": "a2hlp22o"
+    },
+    {
+        "name": "出货接单统计",
+        "table_name": "chjdtj",
+        "id": "55re0fie"
+    },
+    {
+        "name": "出货接单统计.对照表",
+        "table_name": "chjdtjsheet",
+        "id": "j4xih1vk",
+        "mid": "55re0fie"
+    },
+    {
+        "name": "出货接单统计.下单产品统计表",
+        "table_name": "chjdtjsheet2",
+        "id": "6urehpcp",
+        "mid": "55re0fie"
+    },
+    {
+        "name": "出货接单统计.前下单产品统计表",
+        "table_name": "chjdtjsheet6",
+        "id": "zw38ix4b",
+        "mid": "55re0fie"
+    },
+    {
+        "name": "出货接单统计.下单产品情况表",
+        "table_name": "chjdtjsheet7",
+        "id": "09rmig38",
+        "mid": "55re0fie"
+    },
+    {
+        "name": "出货接单统计.出货产品统计表",
+        "table_name": "chjdtjsheet4",
+        "id": "a2urh2ps",
+        "mid": "55re0fie"
+    },
+    {
+        "name": "出货接单统计.出货类别统计",
+        "table_name": "chjdtjsheet5",
+        "id": "zuhfr1gz",
+        "mid": "55re0fie"
+    },
+    {
+        "name": "验货费用登记",
+        "table_name": "yhfydj",
+        "id": "kirqmebq"
+    },
+    {
+        "name": "验货费用登记.费用清单",
+        "table_name": "yhfydjsheet",
+        "id": "6b5v690d",
+        "mid": "kirqmebq"
+    },
+    {
+        "name": "费用申请",
+        "table_name": "fysq",
+        "id": "0sk9fefb"
+    },
+    {
+        "name": "费用申请.费用详情",
+        "table_name": "fysqsheet",
+        "id": "qwxdlvuf",
+        "mid": "0sk9fefb"
+    },
+    {
+        "name": "费用申请.费用详情审批",
+        "table_name": "fysq_xn1",
+        "id": "yt0v7zzc",
+        "mid": "0sk9fefb"
+    },
+    {
+        "name": "批量毛净体",
+        "table_name": "plmjt",
+        "id": "mx2azbzg"
+    },
+    {
+        "name": "批量毛净体.产品资料",
+        "table_name": "plmjtsheet",
+        "id": "v9eymm98",
+        "mid": "mx2azbzg"
+    },
+    {
+        "name": "采购付款核对",
+        "table_name": "cgfkhd",
+        "id": "ytpkefht"
+    },
+    {
+        "name": "采购付款核对.付款资料",
+        "table_name": "cgfkhdsheet",
+        "id": "hfx0h6te",
+        "mid": "ytpkefht"
+    },
+    {
+        "name": "采购付款核对.查看人员清单",
+        "table_name": "cgfkhd_xn1",
+        "id": "v2htoqkk",
+        "mid": "ytpkefht"
+    },
+    {
+        "name": "付款审批",
+        "table_name": "fksp",
+        "id": "8e2y0yrp"
+    },
+    {
+        "name": "付款审批.付款分配",
+        "table_name": "fkspsheet3",
+        "id": "sszy19qz",
+        "mid": "8e2y0yrp"
+    },
+    {
+        "name": "付款审批.产品资料",
+        "table_name": "fkspsheet",
+        "id": "tmfdqcpr",
+        "mid": "8e2y0yrp"
+    },
+    {
+        "name": "付款审批.预付分配",
+        "table_name": "fkspsheet2",
+        "id": "5xqlz8rf",
+        "mid": "8e2y0yrp"
+    },
+    {
+        "name": "付款审批.正常付款详情",
+        "table_name": "fkspsheet4",
+        "id": "7w1l5d1p",
+        "mid": "8e2y0yrp"
+    },
+    {
+        "name": "付款审批.抬头",
+        "table_name": "fkspsheet5",
+        "id": "oibqx05g",
+        "mid": "8e2y0yrp"
+    },
+    {
+        "name": "消息查看",
+        "table_name": "xxck",
+        "id": "24e27wx8"
+    },
+    {
+        "name": "临时产品",
+        "table_name": "lscp",
+        "id": "cr8padut"
+    },
+    {
+        "name": "对应工厂",
+        "table_name": "zscpsheet5",
+        "id": "yekivsvu"
+    },
+    {
+        "name": "进仓通知",
+        "table_name": "jincangtz",
+        "id": "jvph4iho"
+    },
+    {
+        "name": "进仓通知.产品资料",
+        "table_name": "jincangtzsheet",
+        "id": "rgos6oxt",
+        "mid": "jvph4iho"
+    },
+    {
+        "name": "特殊权限",
+        "table_name": "tsqx",
+        "id": "ekbeqw0c"
+    },
+    {
+        "name": "特殊权限.权限详情",
+        "table_name": "tsqxsheet",
+        "id": "8rm5o65y",
+        "mid": "ekbeqw0c"
+    },
+    {
+        "name": "配柜资料表",
+        "table_name": "pgzlb",
+        "id": "22o9zftf"
+    },
+    {
+        "name": "工厂审批",
+        "table_name": "gcsp",
+        "id": "uw16heka"
+    },
+    {
+        "name": "工厂审批.联系人表",
+        "table_name": "gcsplxrb",
+        "id": "jy2mgwmi",
+        "mid": "uw16heka"
+    },
+    {
+        "name": "工厂审批.工厂评分",
+        "table_name": "gcspgcpf",
+        "id": "2u6c41b0",
+        "mid": "uw16heka"
+    },
+    {
+        "name": "新财务工厂资料",
+        "table_name": "newcwcs",
+        "id": "x5z6kwhj"
+    },
+    {
+        "name": "新财务工厂资料.联系人表",
+        "table_name": "newcwcslxr",
+        "id": "z98qtg5x",
+        "mid": "x5z6kwhj"
+    },
+    {
+        "name": "监装任务",
+        "table_name": "Loading_supervision_task",
+        "id": "y4ee89jf"
+    },
+    {
+        "name": "监装任务.监装任务",
+        "table_name": "Loading_task",
+        "id": "dnoac16x",
+        "mid": "y4ee89jf"
+    },
+    {
+        "name": "验货任务",
+        "table_name": "Inspection_task",
+        "id": "tfuu65ac"
+    },
+    {
+        "name": "验货任务.验货任务",
+        "table_name": "Inspection_task",
+        "id": "8ij8_t_7",
+        "mid": "tfuu65ac"
+    },
+    {
+        "name": "复检项",
+        "table_name": "Recheck_items",
+        "id": "n5lp9b34"
+    },
+    {
+        "name": "消息记录",
+        "table_name": "Message_Log",
+        "id": "vf7l4lqb"
+    },
+    {
+        "name": "图片记录",
+        "table_name": "Picture_Record",
+        "id": "c30t7yrl"
+    },
+    {
+        "name": "验货执行",
+        "table_name": "Inspection_execution",
+        "id": "vss56h58"
+    },
+    {
+        "name": "监装明细",
+        "table_name": "Loading_List",
+        "id": "6pm854my"
+    },
+    {
+        "name": "疵点记录",
+        "table_name": "Defect_Record",
+        "id": "su149tf8"
+    },
+    {
+        "name": "复检记录",
+        "table_name": "Review_record",
+        "id": "q_o688er"
+    },
+    {
+        "name": "入库单",
+        "table_name": "storage",
+        "id": "kzeae4uc"
+    },
+    {
+        "name": "入库单.产品资料",
+        "table_name": "storageline",
+        "id": "8wp4so7l",
+        "mid": "kzeae4uc"
+    },
+    {
+        "name": "出库单",
+        "table_name": "delivery",
+        "id": "h3brvfmh"
+    },
+    {
+        "name": "出库单.产品资料",
+        "table_name": "deliveryline",
+        "id": "cabrcdv9",
+        "mid": "h3brvfmh"
+    },
+    {
+        "name": "出库单.进仓编号",
+        "table_name": "deliverysheet",
+        "id": "ligslqgd",
+        "mid": "h3brvfmh"
+    },
+    {
+        "name": "库存明细",
+        "table_name": "inventorydetail",
+        "id": "h4mwoood"
+    },
+    {
+        "name": "库存明细.查看人员",
+        "table_name": "inventorydetail3",
+        "id": "ix10szxb",
+        "mid": "h4mwoood"
+    },
+    {
+        "name": "装柜图片",
+        "table_name": "zgtp",
+        "id": "k4aqo7g2"
+    },
+    {
+        "name": "装柜图片.图片信息",
+        "table_name": "zgtpsheet",
+        "id": "uao81mh8",
+        "mid": "k4aqo7g2"
+    },
+    {
+        "name": "仓库费用",
+        "table_name": "ckzgfy",
+        "id": "smgxkg9y"
+    },
+    {
+        "name": "仓库费用.改单记录",
+        "table_name": "ckzgfysheet",
+        "id": "axaf8piv",
+        "mid": "smgxkg9y"
+    },
+    {
+        "name": "仓库费用.产品资料",
+        "table_name": "ckzgfysheet2",
+        "id": "x5qfaa4s",
+        "mid": "smgxkg9y"
+    },
+    {
+        "name": "仓库费用.出运资料",
+        "table_name": "ckzgfysheet3",
+        "id": "exc01310",
+        "mid": "smgxkg9y"
+    },
+    {
+        "name": "退货通知",
+        "table_name": "thtz",
+        "id": "yz4w9ht8"
+    },
+    {
+        "name": "退货通知.产品资料",
+        "table_name": "thtzsheet",
+        "id": "isz2x763",
+        "mid": "yz4w9ht8"
+    },
+    {
+        "name": "样品管理",
+        "table_name": "ypgl",
+        "id": "tj7if7ct"
+    },
+    {
+        "name": "样品管理.入库产品信息",
+        "table_name": "ypglsheet1",
+        "id": "w0stq7ha",
+        "mid": "tj7if7ct"
+    },
+    {
+        "name": "样品管理.出库信息",
+        "table_name": "ypglsheet",
+        "id": "5refw1km",
+        "mid": "tj7if7ct"
+    },
+    {
+        "name": "样品入库管理",
+        "table_name": "yprkgl",
+        "id": "q7oy1c02"
+    },
+    {
+        "name": "样品入库管理.入库详情",
+        "table_name": "yprkglsheet",
+        "id": "bs1km3au",
+        "mid": "q7oy1c02"
+    },
+    {
+        "name": "样品出库管理",
+        "table_name": "ypckgl",
+        "id": "o8rx8iz2"
+    },
+    {
+        "name": "样品出库管理.出库详情",
+        "table_name": "ypxjglsheet",
+        "id": "jvxmah25",
+        "mid": "o8rx8iz2"
+    },
+    {
+        "name": "样品下架管理",
+        "table_name": "ypxjgl",
+        "id": "e5sb09qo"
+    },
+    {
+        "name": "样品下架管理.下架详情",
+        "table_name": "ypckglsheet",
+        "id": "8iceaqvb",
+        "mid": "e5sb09qo"
+    },
+    {
+        "name": "出货样管理",
+        "table_name": "chypgl",
+        "id": "f0hru01p"
+    },
+    {
+        "name": "出货样管理.入库产品信息",
+        "table_name": "chypglsheet1",
+        "id": "ch7tqi3d",
+        "mid": "f0hru01p"
+    },
+    {
+        "name": "出货样管理.出库信息",
+        "table_name": "chypglsheet",
+        "id": "wwi4h0v1",
+        "mid": "f0hru01p"
+    },
+    {
+        "name": "客户寄样",
+        "table_name": "jygl",
+        "id": "27es99rx"
+    },
+    {
+        "name": "客户寄样.产品清单",
+        "table_name": "jyglcp",
+        "id": "j8ectlao",
+        "mid": "27es99rx"
+    },
+    {
+        "name": "寄件管理",
+        "table_name": "jjgl",
+        "id": "x24qpy4j"
+    },
+    {
+        "name": "寄件管理.联系人",
+        "table_name": "jjglsheet1",
+        "id": "721jo7r9",
+        "mid": "x24qpy4j"
+    },
+    {
+        "name": "寄件管理.寄件统计",
+        "table_name": "jjglsheet2",
+        "id": "jix46jpq",
+        "mid": "x24qpy4j"
+    },
+    {
+        "name": "库存产品",
+        "table_name": "bs_cpkc",
+        "id": "5ktf2r5o"
+    },
+    {
+        "name": "样品领用登记",
+        "table_name": "yplydj",
+        "id": "faomcoja"
+    },
+    {
+        "name": "样品领用登记.产品领用",
+        "table_name": "yplydjsheet",
+        "id": "vcx5ovtt",
+        "mid": "faomcoja"
+    },
+    {
+        "name": "样品领用登记.产品返还",
+        "table_name": "yplydjsheet1",
+        "id": "19jc94jj",
+        "mid": "faomcoja"
+    },
+    {
+        "name": "设计申请",
+        "table_name": "sjsq",
+        "id": "27psaksx"
+    },
+    {
+        "name": "设计申请.申请详情",
+        "table_name": "sjsqsheet",
+        "id": "1be2y6eh",
+        "mid": "27psaksx"
+    },
+    {
+        "name": "船代资料",
+        "table_name": "cdzl",
+        "id": "fde6d07w"
+    },
+    {
+        "name": "船代资料.船公司详情",
+        "table_name": "cdzlsheet",
+        "id": "5hjuo8ba",
+        "mid": "fde6d07w"
+    },
+    {
+        "name": "船代资料.货代协议",
+        "table_name": "cdzlsheet1",
+        "id": "glcry91v",
+        "mid": "fde6d07w"
+    },
+    {
+        "name": "船公司",
+        "table_name": "cgs",
+        "id": "sp1rqijs"
+    },
+    {
+        "name": "预出运单",
+        "table_name": "ycyd",
+        "id": "24qei73r"
+    },
+    {
+        "name": "预出运单.产品资料",
+        "table_name": "ycydsheet",
+        "id": "7llboyp0",
+        "mid": "24qei73r"
+    },
+    {
+        "name": "预出运单.费用清单",
+        "table_name": "ycydsheet6",
+        "id": "tg6s4sy5",
+        "mid": "24qei73r"
+    },
+    {
+        "name": "出运明细",
+        "table_name": "cymx",
+        "id": "4dbpqdje"
+    },
+    {
+        "name": "出运明细.产品资料",
+        "table_name": "cymxsheet",
+        "id": "hoz0raso",
+        "mid": "4dbpqdje"
+    },
+    {
+        "name": "出运明细.预填情况",
+        "table_name": "cymxsheet10",
+        "id": "i90qekw0",
+        "mid": "4dbpqdje"
+    },
+    {
+        "name": "出运明细.费用清单",
+        "table_name": "cymxsheet6",
+        "id": "xskeheq3",
+        "mid": "4dbpqdje"
+    },
+    {
+        "name": "出运明细.产品合并",
+        "table_name": "cymxsheet4",
+        "id": "73u7owus",
+        "mid": "4dbpqdje"
+    },
+    {
+        "name": "出运明细.查看人员",
+        "table_name": "cymxsheet5",
+        "id": "6bl772cl",
+        "mid": "4dbpqdje"
+    },
+    {
+        "name": "出运明细.箱封号详情",
+        "table_name": "cymxsheet7",
+        "id": "laroyw21",
+        "mid": "4dbpqdje"
+    },
+    {
+        "name": "出运明细.投保品名",
+        "table_name": "cymxsheet9",
+        "id": "twgrcfp8",
+        "mid": "4dbpqdje"
+    },
+    {
+        "name": "报关明细",
+        "table_name": "bgmxd",
+        "id": "66700bmw"
+    },
+    {
+        "name": "报关明细.产品资料",
+        "table_name": "bgmxdsheet",
+        "id": "og1fa80r",
+        "mid": "66700bmw"
+    },
+    {
+        "name": "报关明细.合并产品",
+        "table_name": "bgmxdhbcp",
+        "id": "qe8zwi7q",
+        "mid": "66700bmw"
+    },
+    {
+        "name": "报关明细.分别报关",
+        "table_name": "bgmxdhbcpsheet",
+        "id": "5t83y82g",
+        "mid": "66700bmw"
+    },
+    {
+        "name": "报关明细.报关单",
+        "table_name": "bgmxdsheet2",
+        "id": "3bvzqlg5",
+        "mid": "66700bmw"
+    },
+    {
+        "name": "报关明细.补报清单",
+        "table_name": "bgmxdsheet1",
+        "id": "9euj7bwg",
+        "mid": "66700bmw"
+    },
+    {
+        "name": "报关明细.预填信息",
+        "table_name": "bgmxdsheet3",
+        "id": "39ua2lt4",
+        "mid": "66700bmw"
+    },
+    {
+        "name": "商检清单",
+        "table_name": "sjqd",
+        "id": "u7xthkme"
+    },
+    {
+        "name": "商检清单.合并产品",
+        "table_name": "sjqdhbcp",
+        "id": "3o0t2gul",
+        "mid": "u7xthkme"
+    },
+    {
+        "name": "商检清单.产品资料",
+        "table_name": "sjqdsheet",
+        "id": "ydwllt9g",
+        "mid": "u7xthkme"
+    },
+    {
+        "name": "商检清单.报关单",
+        "table_name": "sjqdsheet2",
+        "id": "77sdi3fy",
+        "mid": "u7xthkme"
+    },
+    {
+        "name": "未处理清单",
+        "table_name": "dbbqd",
+        "id": "m9halhqk"
+    },
+    {
+        "name": "财务统计",
+        "table_name": "cwtj",
+        "id": "6ahbgvpd"
+    },
+    {
+        "name": "财务统计.报关发票",
+        "table_name": "bgfpsheet8",
+        "id": "13t15dl6",
+        "mid": "6ahbgvpd"
+    },
+    {
+        "name": "财务统计.出货详细",
+        "table_name": "cwtj1",
+        "id": "uyglxmma",
+        "mid": "6ahbgvpd"
+    },
+    {
+        "name": "财务统计.出货合并",
+        "table_name": "cwtjsheet2",
+        "id": "3ia56ypy",
+        "mid": "6ahbgvpd"
+    },
+    {
+        "name": "财务统计.采购详细",
+        "table_name": "cwtj_xn1",
+        "id": "2ddeqa7a",
+        "mid": "6ahbgvpd"
+    },
+    {
+        "name": "财务统计.采购合并",
+        "table_name": "cwtjsheet4",
+        "id": "9g2dgkg3",
+        "mid": "6ahbgvpd"
+    },
+    {
+        "name": "财务统计.财务出货详细",
+        "table_name": "cwtj_xn2",
+        "id": "0h3a5191",
+        "mid": "6ahbgvpd"
+    },
+    {
+        "name": "财务统计.财务出货合并",
+        "table_name": "cwtjsheet6",
+        "id": "2l2a7346",
+        "mid": "6ahbgvpd"
+    },
+    {
+        "name": "财务统计.出运明细",
+        "table_name": "cwtj_xn3",
+        "id": "1cxrvdr9",
+        "mid": "6ahbgvpd"
+    },
+    {
+        "name": "海关编码表",
+        "table_name": "hgbmb",
+        "id": "tbgtuglp"
+    },
+    {
+        "name": "海关编码表.详细资料",
+        "table_name": "hgbmbsheet",
+        "id": "7zcz8yp7",
+        "mid": "tbgtuglp"
+    },
+    {
+        "name": "货代费用",
+        "table_name": "hdfy",
+        "id": "lpzp3838"
+    },
+    {
+        "name": "货代费用.相关杂费",
+        "table_name": "hdfysheet",
+        "id": "5jhihfjk",
+        "mid": "lpzp3838"
+    },
+    {
+        "name": "货代费用.货代详情",
+        "table_name": "hdfysheet1",
+        "id": "0djdih87",
+        "mid": "lpzp3838"
+    },
+    {
+        "name": "货代费用.货代协议",
+        "table_name": "hdfysheet2",
+        "id": "2d8m5l9b",
+        "mid": "lpzp3838"
+    },
+    {
+        "name": "货代费用.特报详情",
+        "table_name": "hdfysheet3",
+        "id": "h8ztfqk3",
+        "mid": "lpzp3838"
+    },
+    {
+        "name": "保险申报",
+        "table_name": "tiananinsurance",
+        "id": "go3i2y5d"
+    },
+    {
+        "name": "出运改单",
+        "table_name": "cygd",
+        "id": "c231bygm"
+    },
+    {
+        "name": "出运改单.产品资料",
+        "table_name": "cygdsheet",
+        "id": "sselwdgh",
+        "mid": "c231bygm"
+    },
+    {
+        "name": "船代合作",
+        "table_name": "cdhz",
+        "id": "zwyj3w5f"
+    },
+    {
+        "name": "海运信息",
+        "table_name": "hyxx",
+        "id": "7j60dddp"
+    },
+    {
+        "name": "结算中心",
+        "table_name": "fpgl",
+        "id": "x3oi3d9g"
+    },
+    {
+        "name": "结算中心.采购付款详情",
+        "table_name": "fpglsheet1",
+        "id": "thcu98xr",
+        "mid": "x3oi3d9g"
+    },
+    {
+        "name": "结算中心.外销收汇详情",
+        "table_name": "fpglsheet2",
+        "id": "ib8866fo",
+        "mid": "x3oi3d9g"
+    },
+    {
+        "name": "结算中心.其他费用情况",
+        "table_name": "fpglsheet3",
+        "id": "ssg28igx",
+        "mid": "x3oi3d9g"
+    },
+    {
+        "name": "结算中心.现金折扣情况",
+        "table_name": "fpglsheet4",
+        "id": "28fql61d",
+        "mid": "x3oi3d9g"
+    },
+    {
+        "name": "预付货款",
+        "table_name": "yfhk",
+        "id": "s40m1e3k"
+    },
+    {
+        "name": "预付货款.预付出货1",
+        "table_name": "gcdjsheet1",
+        "id": "e2qvigpc",
+        "mid": "s40m1e3k"
+    },
+    {
+        "name": "预付货款.详细用途",
+        "table_name": "gcdjsheet",
+        "id": "4mmcb6az",
+        "mid": "s40m1e3k"
+    },
+    {
+        "name": "预付货款.预付出货",
+        "table_name": "gcdjsheet2",
+        "id": "k2r4v0jz",
+        "mid": "s40m1e3k"
+    },
+    {
+        "name": "采购付款",
+        "table_name": "gchk",
+        "id": "plpvk56h"
+    },
+    {
+        "name": "采购付款.付款详情",
+        "table_name": "gchksheet1",
+        "id": "vre4hkde",
+        "mid": "plpvk56h"
+    },
+    {
+        "name": "采购付款.详细用途",
+        "table_name": "gchksheet",
+        "id": "wex6twa4",
+        "mid": "plpvk56h"
+    },
+    {
+        "name": "采购付款.查看人员",
+        "table_name": "gchksheet2",
+        "id": "9kr8v5qd",
+        "mid": "plpvk56h"
+    },
+    {
+        "name": "采购付款.换单详情",
+        "table_name": "gchksheet3",
+        "id": "0zqojlff",
+        "mid": "plpvk56h"
+    },
+    {
+        "name": "开票通知",
+        "table_name": "kaiptz",
+        "id": "0ccihdd2"
+    },
+    {
+        "name": "开票通知.产品资料",
+        "table_name": "kaiptzsheet",
+        "id": "iccgqyko",
+        "mid": "0ccihdd2"
+    },
+    {
+        "name": "开票通知.资料合并",
+        "table_name": "kaiptzsheet1",
+        "id": "aum8uqtd",
+        "mid": "0ccihdd2"
+    },
+    {
+        "name": "开票通知.开票详情",
+        "table_name": "kaiptzxq",
+        "id": "r9z6xa14",
+        "mid": "0ccihdd2"
+    },
+    {
+        "name": "开票通知.查看人员",
+        "table_name": "kaiptzsheet2",
+        "id": "wkyasoyx",
+        "mid": "0ccihdd2"
+    },
+    {
+        "name": "外销退税",
+        "table_name": "wxts",
+        "id": "2xldo36g"
+    },
+    {
+        "name": "外销退税.详细用途",
+        "table_name": "wxtssheet",
+        "id": "vbk1743a",
+        "mid": "2xldo36g"
+    },
+    {
+        "name": "佣金管理",
+        "table_name": "yongjingl",
+        "id": "3jy4s9lh"
+    },
+    {
+        "name": "管理费用",
+        "table_name": "glfy",
+        "id": "fta98fmv"
+    },
+    {
+        "name": "银行汇率",
+        "table_name": "yhhl",
+        "id": "ax9iv6tc"
+    },
+    {
+        "name": "银行汇率.详细资料",
+        "table_name": "yhhlsheet",
+        "id": "wx0q0yp6",
+        "mid": "ax9iv6tc"
+    },
+    {
+        "name": "现金合成",
+        "table_name": "xjhc",
+        "id": "qaie5jky"
+    },
+    {
+        "name": "现金合成.产品资料",
+        "table_name": "xjhcsheet",
+        "id": "f3yuvlet",
+        "mid": "qaie5jky"
+    },
+    {
+        "name": "现金合成.现金工厂",
+        "table_name": "xjhcsheet1",
+        "id": "m7ud8pcf",
+        "mid": "qaie5jky"
+    },
+    {
+        "name": "客户收汇",
+        "table_name": "krsh",
+        "id": "orp0l80f"
+    },
+    {
+        "name": "客户收汇.详细用途",
+        "table_name": "krshsheet",
+        "id": "q79x75ji",
+        "mid": "orp0l80f"
+    },
+    {
+        "name": "客户收汇.收款合并",
+        "table_name": "khshhb",
+        "id": "lw2wjr51",
+        "mid": "orp0l80f"
+    },
+    {
+        "name": "客户收汇.查看人员",
+        "table_name": "krshsheet1",
+        "id": "uic41a53",
+        "mid": "orp0l80f"
+    },
+    {
+        "name": "定金调整",
+        "table_name": "djtz",
+        "id": "g4tayxle"
+    },
+    {
+        "name": "定金调整.详细用途",
+        "table_name": "djtzsheet",
+        "id": "x182fha1",
+        "mid": "g4tayxle"
+    },
+    {
+        "name": "付款合成",
+        "table_name": "fkhc",
+        "id": "j376vtyt"
+    },
+    {
+        "name": "预填费用",
+        "table_name": "ytfy",
+        "id": "cheip6vz"
+    },
+    {
+        "name": "预填费用.采购合同",
+        "table_name": "ytfysheet",
+        "id": "11ecetpm",
+        "mid": "cheip6vz"
+    },
+    {
+        "name": "单证费用",
+        "table_name": "dzfy",
+        "id": "5r6jjrvf"
+    },
+    {
+        "name": "单证费用.单证费用明细",
+        "table_name": "dzfysheet",
+        "id": "ul7286wy",
+        "mid": "5r6jjrvf"
+    },
+    {
+        "name": "财务付款核对",
+        "table_name": "cwfkhd",
+        "id": "k6zer91i"
+    },
+    {
+        "name": "财务付款核对.付款资料",
+        "table_name": "cwfkhdsheet",
+        "id": "t7wbmtys",
+        "mid": "k6zer91i"
+    },
+    {
+        "name": "电商运费",
+        "table_name": "dsyf",
+        "id": "zv2iquxs"
+    },
+    {
+        "name": "电商运费.历史额外费用",
+        "table_name": "dsyfsheet",
+        "id": "fah1jpkl",
+        "mid": "zv2iquxs"
+    },
+    {
+        "name": "电商运费.货代协议",
+        "table_name": "dsfysheet2",
+        "id": "ra4xwjjk",
+        "mid": "zv2iquxs"
+    },
+    {
+        "name": "电商运费.相关杂费",
+        "table_name": "dshdfysheet",
+        "id": "okk52sfo",
+        "mid": "zv2iquxs"
+    },
+    {
+        "name": "电商预填费用",
+        "table_name": "dsytfy",
+        "id": "h834ssbd"
+    },
+    {
+        "name": "电商预填费用.采购合同",
+        "table_name": "dsytfysheet",
+        "id": "g6vd8cg0",
+        "mid": "h834ssbd"
+    },
+    {
+        "name": "风控客户",
+        "table_name": "fkkh",
+        "id": "64tc0yvw"
+    },
+    {
+        "name": "风控客户.客人情况",
+        "table_name": "fkkhsheet2",
+        "id": "uhfbrsjv",
+        "mid": "64tc0yvw"
+    },
+    {
+        "name": "风控客户.逾期清单",
+        "table_name": "fkkhsheet3",
+        "id": "yvq2uhqc",
+        "mid": "64tc0yvw"
+    },
+    {
+        "name": "风控客户.出货汇总",
+        "table_name": "fkkhsheet1",
+        "id": "xozqidc9",
+        "mid": "64tc0yvw"
+    },
+    {
+        "name": "资信调查",
+        "table_name": "zxtc",
+        "id": "lku01h7i"
+    },
+    {
+        "name": "资信调查.限额申请历史",
+        "table_name": "zxtcsheet",
+        "id": "ibe17al6",
+        "mid": "lku01h7i"
+    },
+    {
+        "name": "信保收费",
+        "table_name": "xbsf",
+        "id": "8vk0r3av"
+    },
+    {
+        "name": "放单审请",
+        "table_name": "fdsq",
+        "id": "0gqj5f1u"
+    },
+    {
+        "name": "放单审请.查看人员清单",
+        "table_name": "fdsq_xn1",
+        "id": "vdg56eri",
+        "mid": "0gqj5f1u"
+    },
+    {
+        "name": "买家代码申请",
+        "table_name": "buyercodeapply",
+        "id": "3gfkf48t"
+    },
+    {
+        "name": "买家代码申请.中信保批复信息",
+        "table_name": "buyercodereply",
+        "id": "8vmmj5oq",
+        "mid": "3gfkf48t"
+    },
+    {
+        "name": "买家代码申请.查看人员清单",
+        "table_name": "buyercodeapplysheet",
+        "id": "i17jaso4",
+        "mid": "3gfkf48t"
+    },
+    {
+        "name": "银行代码申请",
+        "table_name": "bankcodeapply",
+        "id": "cptewj09"
+    },
+    {
+        "name": "银行代码申请.中信保批复信息",
+        "table_name": "bankcodereply",
+        "id": "kxlfqk2p",
+        "mid": "cptewj09"
+    },
+    {
+        "name": "银行代码申请.查看人员清单",
+        "table_name": "bankcodeapplysheet",
+        "id": "4x1brfik",
+        "mid": "cptewj09"
+    },
+    {
+        "name": "非LC限额申请",
+        "table_name": "nolcquotaapplyinfo",
+        "id": "x9ffd48h"
+    },
+    {
+        "name": "非LC限额申请.附件信息",
+        "table_name": "nolcquotaapplyattachinfo",
+        "id": "gostx884",
+        "mid": "x9ffd48h"
+    },
+    {
+        "name": "非LC限额申请.中信保批复信息",
+        "table_name": "nolcquotareply",
+        "id": "yawyo4l5",
+        "mid": "x9ffd48h"
+    },
+    {
+        "name": "非LC限额申请.查看人员清单",
+        "table_name": "nolcquotaapplyinfosheet",
+        "id": "gf9u2zt3",
+        "mid": "x9ffd48h"
+    },
+    {
+        "name": "LC限额申请",
+        "table_name": "lcquotaapply",
+        "id": "wo4rg5su"
+    },
+    {
+        "name": "LC限额申请.拖欠信息",
+        "table_name": "lcquotaapplyoweinfo",
+        "id": "rpks5jy5",
+        "mid": "wo4rg5su"
+    },
+    {
+        "name": "LC限额申请.中信保批复信息",
+        "table_name": "lcquotareply",
+        "id": "m49786af",
+        "mid": "wo4rg5su"
+    },
+    {
+        "name": "LC限额申请.查看人员清单",
+        "table_name": "lcquotaapplysheet",
+        "id": "x4xmazmc",
+        "mid": "wo4rg5su"
+    },
+    {
+        "name": "LC限额申请.附件信息",
+        "table_name": "lcquotaapplyattachinfo",
+        "id": "0qstzgxo",
+        "mid": "wo4rg5su"
+    },
+    {
+        "name": "出运申报",
+        "table_name": "shipmentapply",
+        "id": "hmjc8g9q"
+    },
+    {
+        "name": "出运申报.该买家当前限额",
+        "table_name": "shipmentapplysheet1",
+        "id": "ib3jr18h",
+        "mid": "hmjc8g9q"
+    },
+    {
+        "name": "出运申报.中信保批复信息",
+        "table_name": "shipmentapproveinfo",
+        "id": "tpxxbmyw",
+        "mid": "hmjc8g9q"
+    },
+    {
+        "name": "出运申报.查看人员清单",
+        "table_name": "shipmentapplysheet",
+        "id": "g5uw3bu7",
+        "mid": "hmjc8g9q"
+    },
+    {
+        "name": "出运变更申请",
+        "table_name": "shipmentalterapply",
+        "id": "yzmy0yx6"
+    },
+    {
+        "name": "出运变更申请.中信保批复信息",
+        "table_name": "shipmentaapproveinfo",
+        "id": "tf5xhyd0",
+        "mid": "yzmy0yx6"
+    },
+    {
+        "name": "出运变更申请.查看人员清单",
+        "table_name": "shipmentalterapplysheet",
+        "id": "bg0g5yiu",
+        "mid": "yzmy0yx6"
+    },
+    {
+        "name": "收汇确认",
+        "table_name": "receiptapply",
+        "id": "178e5hm4"
+    },
+    {
+        "name": "收汇确认.中信保批复信息",
+        "table_name": "receiptapproveinfo",
+        "id": "6et0y7ij",
+        "mid": "178e5hm4"
+    },
+    {
+        "name": "收汇确认.查看人员清单",
+        "table_name": "receiptapplysheet",
+        "id": "ym9k9yob",
+        "mid": "178e5hm4"
+    },
+    {
+        "name": "收汇变更",
+        "table_name": "receiptaltapply",
+        "id": "9ove787c"
+    },
+    {
+        "name": "收汇变更.中信保批复信息",
+        "table_name": "receiptaltapproveinfo",
+        "id": "exddhaf5",
+        "mid": "9ove787c"
+    },
+    {
+        "name": "收汇变更.查看人员清单",
+        "table_name": "receiptaltapplysheet",
+        "id": "5mikozo2",
+        "mid": "9ove787c"
+    },
+    {
+        "name": "收汇情况",
+        "table_name": "shqk",
+        "id": "s0wmmj47"
+    },
+    {
+        "name": "收汇情况.收汇详情",
+        "table_name": "shqksheet",
+        "id": "gd1bvbzh",
+        "mid": "s0wmmj47"
+    },
+    {
+        "name": "逾期未收汇查询",
+        "table_name": "overduereceipt",
+        "id": "9yw29q4h"
+    },
+    {
+        "name": "逾期未收汇查询.中信保批复信息",
+        "table_name": "overduereceiptinfo",
+        "id": "0xioq8zd",
+        "mid": "9yw29q4h"
+    },
+    {
+        "name": "诚信工厂",
+        "table_name": "cxgc",
+        "id": "iyl207md"
+    },
+    {
+        "name": "改单情况表",
+        "table_name": "gdqkb",
+        "id": "x2rrzufl"
+    },
+    {
+        "name": "信保区间费率",
+        "table_name": "fkxbfl",
+        "id": "uv75shy7"
+    },
+    {
+        "name": "专利查询",
+        "table_name": "patentinquiry",
+        "id": "zvmepprb"
+    },
+    {
+        "name": "专利查询.产品资料",
+        "table_name": "patentinquiry_affix",
+        "id": "k9g0rw32",
+        "mid": "zvmepprb"
+    },
+    {
+        "name": "单证汇率表",
+        "table_name": "fkhlb",
+        "id": "v8505stw"
+    },
+    {
+        "name": "单证汇率表.汇率详情",
+        "table_name": "fkhlbsheet",
+        "id": "kx30w9ak",
+        "mid": "v8505stw"
+    },
+    {
+        "name": "风控供应商",
+        "table_name": "giftreporting",
+        "id": "4zlgyf0q"
+    },
+    {
+        "name": "风控供应商.供应商回访信息",
+        "table_name": "giftreportingsheet",
+        "id": "agzgkqa1",
+        "mid": "4zlgyf0q"
+    },
+    {
+        "name": "风控供应商.负面供应商表",
+        "table_name": "giftreportingsheet1",
+        "id": "wse2vm9b",
+        "mid": "4zlgyf0q"
+    },
+    {
+        "name": "风控供应商.收礼上报",
+        "table_name": "giftreportingsheet2",
+        "id": "yw7hrjek",
+        "mid": "4zlgyf0q"
+    },
+    {
+        "name": "限额倒签申请",
+        "table_name": "quotaapplybackinfo",
+        "id": "xer0de2m"
+    },
+    {
+        "name": "限额倒签申请.信报反馈信息",
+        "table_name": "quotabackapproveinfo",
+        "id": "82joljv6",
+        "mid": "xer0de2m"
+    },
+    {
+        "name": "可损通知",
+        "table_name": "plnotice",
+        "id": "g52bt9ic"
+    },
+    {
+        "name": "可损通知.可损明细",
+        "table_name": "plnoticesheet1",
+        "id": "k1ylpxus",
+        "mid": "g52bt9ic"
+    },
+    {
+        "name": "可损通知.中信保批复信息",
+        "table_name": "claimapproveinfo",
+        "id": "6mhua20t",
+        "mid": "g52bt9ic"
+    },
+    {
+        "name": "可损通知.查看人员清单",
+        "table_name": "plnoticesheet",
+        "id": "97w8vd0h",
+        "mid": "g52bt9ic"
+    },
+    {
+        "name": "自行掌握限额测算",
+        "table_name": "edicheckautoquota",
+        "id": "tyxdrfvz"
+    },
+    {
+        "name": "自行掌握限额测算.查看人员清单",
+        "table_name": "edicheckautoquotasheet",
+        "id": "epw9rdm1",
+        "mid": "tyxdrfvz"
+    },
+    {
+        "name": "国家分类",
+        "table_name": "countryclassify",
+        "id": "gsh3aeu4"
+    },
+    {
+        "name": "国家分类.查看人员清单",
+        "table_name": "countryclassifysheet",
+        "id": "ettvatrg",
+        "mid": "gsh3aeu4"
+    },
+    {
+        "name": "限额余额查询",
+        "table_name": "quotabalanceinfo",
+        "id": "omv3apve"
+    },
+    {
+        "name": "限额余额查询.查看人员清单",
+        "table_name": "quotabalanceinfosheet",
+        "id": "sst5ivxv",
+        "mid": "omv3apve"
+    },
+    {
+        "name": "信保理赔",
+        "table_name": "sinosureclaim",
+        "id": "3ktktr5w"
+    },
+    {
+        "name": "信保理赔.未收汇合同的出运明细",
+        "table_name": "sinosureclaimsheet2",
+        "id": "gklhp81j",
+        "mid": "3ktktr5w"
+    },
+    {
+        "name": "信保理赔.查看人员清单",
+        "table_name": "sinosureclaimsheet",
+        "id": "kwf58lps",
+        "mid": "3ktktr5w"
+    },
+    {
+        "name": "限额预撤销提醒",
+        "table_name": "quotaprerevocationinfo",
+        "id": "7egpb2rf"
+    },
+    {
+        "name": "限额预撤销提醒.中信保批复信息",
+        "table_name": "quotaprerevocationinfosheet1",
+        "id": "4lgw1g2w",
+        "mid": "7egpb2rf"
+    },
+    {
+        "name": "索赔申请",
+        "table_name": "countrycode",
+        "id": "ely057fl"
+    },
+    {
+        "name": "索赔申请.中信保批复信息",
+        "table_name": "plnoticeapproveinfo",
+        "id": "tdggictw",
+        "mid": "ely057fl"
+    },
+    {
+        "name": "索赔申请.查看人员清单",
+        "table_name": "countrycodesheet",
+        "id": "bxtjjzey",
+        "mid": "ely057fl"
+    },
+    {
+        "name": "我方公司",
+        "table_name": "wfgs",
+        "id": "31hah562"
+    },
+    {
+        "name": "我方公司.报关汇率",
+        "table_name": "wfgsbghl",
+        "id": "nn1etndr",
+        "mid": "31hah562"
+    },
+    {
+        "name": "货币代码",
+        "table_name": "hbdm",
+        "id": "ftkyldl5"
+    },
+    {
+        "name": "业务人员",
+        "table_name": "ywrybiao",
+        "id": "wy9zuhdo"
+    },
+    {
+        "name": "报关单价计算",
+        "table_name": "bgdjjs",
+        "id": "3qq0c8ra"
+    },
+    {
+        "name": "报关单价计算.详情",
+        "table_name": "bgdjjssheet",
+        "id": "ses8jtwv",
+        "mid": "3qq0c8ra"
+    },
+    {
+        "name": "开票内容",
+        "table_name": "kpnr",
+        "id": "5z2txk3m"
+    },
+    {
+        "name": "开票内容.汇率详情",
+        "table_name": "kpnrsheet",
+        "id": "xnhynuop",
+        "mid": "5z2txk3m"
+    },
+    {
+        "name": "合同寄件",
+        "table_name": "htjj",
+        "id": "dk6z1jcu"
+    },
+    {
+        "name": "不抹零工厂",
+        "table_name": "bmlgc",
+        "id": "t6m4f8z9"
+    },
+    {
+        "name": "特殊货号",
+        "table_name": "tshh",
+        "id": "m4ik7mtx"
+    },
+    {
+        "name": "特殊信保",
+        "table_name": "tsxb",
+        "id": "q8wvpb3o"
+    },
+    {
+        "name": "特殊信保.详情",
+        "table_name": "tsxbsheet",
+        "id": "51qcqxev",
+        "mid": "q8wvpb3o"
+    },
+    {
+        "name": "设计类型",
+        "table_name": "sjlx",
+        "id": "izy2zcms"
+    },
+    {
+        "name": "设计类型.详情",
+        "table_name": "sjlxsheet",
+        "id": "xmv0p48u",
+        "mid": "izy2zcms"
+    },
+    {
+        "name": "服务端地址",
+        "table_name": "fwddz",
+        "id": "ekmfk4a8"
+    },
+    {
+        "name": "包装核算",
+        "table_name": "bzhs",
+        "id": "wfuz7ous"
+    },
+    {
+        "name": "包装核算.登记信息",
+        "table_name": "bzhssheet",
+        "id": "r2hppr7w",
+        "mid": "wfuz7ous"
+    },
+    {
+        "name": "运费核算",
+        "table_name": "yfhs",
+        "id": "2yx6k8al"
+    },
+    {
+        "name": "运费核算.登记信息",
+        "table_name": "yfhssheet",
+        "id": "otdr2l5h",
+        "mid": "2yx6k8al"
+    },
+    {
+        "name": "付款银行",
+        "table_name": "fkyh",
+        "id": "o03impjd"
+    },
+    {
+        "name": "收汇银行",
+        "table_name": "shyh",
+        "id": "gc33khfh"
+    },
+    {
+        "name": "金蝶账号",
+        "table_name": "jdzh",
+        "id": "6cld1pre"
+    },
+    {
+        "name": "店铺管理",
+        "table_name": "dpgl",
+        "id": "wm2tfgf1"
+    },
+    {
+        "name": "浙里办公司密钥",
+        "table_name": "zlbcompanysecret",
+        "id": "o58tbu7f"
+    },
+    {
+        "name": "浙里办票在线发票",
+        "table_name": "zlbinvoice",
+        "id": "19jslpam"
+    },
+    {
+        "name": "浙里办票在线发票.发票明细",
+        "table_name": "zlbinvoicedetail",
+        "id": "zv1mrrzk",
+        "mid": "19jslpam"
+    },
+    {
+        "name": "项目交接",
+        "table_name": "xmjj",
+        "id": "boboujt7"
+    },
+    {
+        "name": "项目交接.交接详情",
+        "table_name": "xmjjsheet",
+        "id": "75pk50vm",
+        "mid": "boboujt7"
+    },
+    {
+        "name": "车辆可视化统计",
+        "table_name": "clkshtj",
+        "id": "o1rtkcv8"
+    },
+    {
+        "name": "客户来源",
+        "table_name": "khly",
+        "id": "su6vx0o8"
+    },
+    {
+        "name": "电商汇率表",
+        "table_name": "dshlb",
+        "id": "cyrq0lt7"
+    },
+    {
+        "name": "电商汇率表.修改情况",
+        "table_name": "dshlbsheet",
+        "id": "8dub7vrm",
+        "mid": "cyrq0lt7"
+    },
+    {
+        "name": "财务核算汇率",
+        "table_name": "cwhshl",
+        "id": "emxhcjsd"
+    },
+    {
+        "name": "财务核算汇率.汇率详情",
+        "table_name": "cwhshlsheet",
+        "id": "89fephi1",
+        "mid": "emxhcjsd"
+    },
+    {
+        "name": "付款种类",
+        "table_name": "fkzl",
+        "id": "pzkj63j9"
+    },
+    {
+        "name": "付款种类.详细信息",
+        "table_name": "xxxx",
+        "id": "glkrqm7w",
+        "mid": "pzkj63j9"
+    },
+    {
+        "name": "员工资料",
+        "table_name": "sys_user",
+        "id": "erul7tze"
+    },
+    {
+        "name": "显示设置",
+        "table_name": "xssz",
+        "id": "atcf4o23"
+    },
+    {
+        "name": "显示设置.字段明细",
+        "table_name": "xsszzdmx",
+        "id": "lihuw5et",
+        "mid": "atcf4o23"
+    },
+    {
+        "name": "必填设置",
+        "table_name": "btsz",
+        "id": "jmip9rpy"
+    },
+    {
+        "name": "必填设置.字段明细",
+        "table_name": "btszzdmx",
+        "id": "lihuw5et",
+        "mid": "jmip9rpy"
+    },
+    {
+        "name": "移动设置",
+        "table_name": "ydsz",
+        "id": "umq62jtr"
+    },
+    {
+        "name": "移动设置.字段明细",
+        "table_name": "ydszzdmx",
+        "id": "lihuw5et",
+        "mid": "umq62jtr"
+    },
+    {
+        "name": "价格条款",
+        "table_name": "jgtk",
+        "id": "7lvaztj7"
+    },
+    {
+        "name": "出运口岸",
+        "table_name": "cyka",
+        "id": "mupd428g"
+    },
+    {
+        "name": "目的口岸",
+        "table_name": "mdka",
+        "id": "z8otsa0c"
+    },
+    {
+        "name": "目的仓库",
+        "table_name": "mdck",
+        "id": "k02dwqs4"
+    },
+    {
+        "name": "签约地点",
+        "table_name": "qydd",
+        "id": "ffuf33wd"
+    },
+    {
+        "name": "交货地点",
+        "table_name": "jhdd",
+        "id": "ca3hefz3"
+    },
+    {
+        "name": "贸易国别",
+        "table_name": "mygb",
+        "id": "hrw5f9j9"
+    },
+    {
+        "name": "结汇方式",
+        "table_name": "jhfs",
+        "id": "de8itdbb"
+    },
+    {
+        "name": "计量单位",
+        "table_name": "jldw",
+        "id": "vkda7rf5"
+    },
+    {
+        "name": "佣金类型",
+        "table_name": "yjlx",
+        "id": "f21pcy3k"
+    },
+    {
+        "name": "海关编码",
+        "table_name": "hgbm",
+        "id": "f90dvx6e"
+    },
+    {
+        "name": "客户类型",
+        "table_name": "khlx",
+        "id": "w0dtgd6v"
+    },
+    {
+        "name": "运输方式",
+        "table_name": "ysfs",
+        "id": "y8at5eyq"
+    },
+    {
+        "name": "包装单位",
+        "table_name": "bzdw",
+        "id": "yu749s97"
+    },
+    {
+        "name": "省份",
+        "table_name": "cnshengf",
+        "id": "ig2mudam"
+    },
+    {
+        "name": "货物性质",
+        "table_name": "hwxz",
+        "id": "2pwg1uzs"
+    },
+    {
+        "name": "业务范围",
+        "table_name": "ywfw",
+        "id": "3sb0lmte"
+    },
+    {
+        "name": "工厂规模",
+        "table_name": "gcgm",
+        "id": "11mw1u8c"
+    },
+    {
+        "name": "业务规模",
+        "table_name": "ywgm",
+        "id": "i9ays2xa"
+    },
+    {
+        "name": "货柜型号",
+        "table_name": "huoguixh",
+        "id": "cbr7a72y"
+    },
+    {
+        "name": "仓库资料",
+        "table_name": "cangkuzl",
+        "id": "0ee5wfq3"
+    },
+    {
+        "name": "技术细节",
+        "table_name": "jishuxijieb",
+        "id": "29qlp5zx"
+    },
+    {
+        "name": "运费支付方式",
+        "table_name": "yfzffsbiao",
+        "id": "ygj26apz"
+    },
+    {
+        "name": "贸易方式",
+        "table_name": "myfs",
+        "id": "hcqhh15o"
+    },
+    {
+        "name": "包装方式",
+        "table_name": "bzhfsh",
+        "id": "got9x2hs"
+    },
+    {
+        "name": "常用颜色",
+        "table_name": "chyys",
+        "id": "vbvjd40x"
+    },
+    {
+        "name": "费用名称",
+        "table_name": "fymc",
+        "id": "rxvrmpy0"
+    },
+    {
+        "name": "装箱费用规则",
+        "table_name": "zxfygz",
+        "id": "9ma6ms9q"
+    },
+    {
+        "name": "进仓费用规则",
+        "table_name": "jcfygz",
+        "id": "byabt176"
+    },
+    {
+        "name": "包装类型",
+        "table_name": "bzhleix",
+        "id": "l2l9u5hv"
+    },
+    {
+        "name": "箱    型",
+        "table_name": "xiangxing",
+        "id": "s803u0b6"
+    },
+    {
+        "name": "箱    属",
+        "table_name": "xiangshu",
+        "id": "09vils74"
+    },
+    {
+        "name": "进场性质",
+        "table_name": "jinchxzh",
+        "id": "gsu9el8z"
+    },
+    {
+        "name": "仓库人员",
+        "table_name": "ckrenyuan",
+        "id": "aq3g99yz"
+    },
+    {
+        "name": "宁波自动编号",
+        "table_name": "zdbh",
+        "id": "buz967jb"
+    },
+    {
+        "name": "义乌自动编号",
+        "table_name": "ywzdbh",
+        "id": "5hx86x2x"
+    },
+    {
+        "name": "银行资料",
+        "table_name": "yhzl",
+        "id": "4ey4pw9y"
+    },
+    {
+        "name": "外部银行资料",
+        "table_name": "wbyhzl",
+        "id": "1th21eo7"
+    },
+    {
+        "name": "银行编码",
+        "table_name": "yhbm",
+        "id": "4b3bojex"
+    },
+    {
+        "name": "申报要素",
+        "table_name": "sbys",
+        "id": "e0e8wpzj"
+    },
+    {
+        "name": "业务所在地区",
+        "table_name": "ywszdq",
+        "id": "q3pjpokb"
+    },
+    {
+        "name": "结算方式",
+        "table_name": "jsfs",
+        "id": "m7jadkqb"
+    },
+    {
+        "name": "财务计息日期",
+        "table_name": "cwjxrq",
+        "id": "ra5rj62g"
+    },
+    {
+        "name": "业务人员联系",
+        "table_name": "ywrylx",
+        "id": "6q1kfytp"
+    },
+    {
+        "name": "日用品登记",
+        "table_name": "rypdj",
+        "id": "j3l7hmly"
+    },
+    {
+        "name": "产品分类",
+        "table_name": "cpfl",
+        "id": "trjlzg28"
+    },
+    {
+        "name": "包装要求",
+        "table_name": "bzyq",
+        "id": "ix7ywgxr"
+    },
+    {
+        "name": "样品区域",
+        "table_name": "ypqy",
+        "id": "cpegpl69"
+    },
+    {
+        "name": "我方抬头",
+        "table_name": "wftt",
+        "id": "009wp8bc"
+    },
+    {
+        "name": "网页码代码",
+        "table_name": "wymdm",
+        "id": "k971yd37"
+    },
+    {
+        "name": "财务开票联系",
+        "table_name": "cwkplx",
+        "id": "rao7kcla"
+    },
+    {
+        "name": "品质保证",
+        "table_name": "pzbz",
+        "id": "uzhrksow"
+    },
+    {
+        "name": "产品要求",
+        "table_name": "cpyq",
+        "id": "1uqfo8b5"
+    },
+    {
+        "name": "快递公司",
+        "table_name": "kdgs",
+        "id": "cx6pr468"
+    },
+    {
+        "name": "工厂客户",
+        "table_name": "gckh",
+        "id": "86qwba7a"
+    },
+    {
+        "name": "业务部对照表",
+        "table_name": "ywbdzb",
+        "id": "lp9oavzw"
+    },
+    {
+        "name": "认证类型",
+        "table_name": "rzlx",
+        "id": "z3f8box4"
+    },
+    {
+        "name": "生意模式",
+        "table_name": "syms",
+        "id": "fylj6bje"
+    },
+    {
+        "name": "适合市场",
+        "table_name": "shsc",
+        "id": "gf73ofw5"
+    },
+    {
+        "name": "测试报告",
+        "table_name": "csbg",
+        "id": "ao0elag2"
+    },
+    {
+        "name": "金蝶银行代码",
+        "table_name": "jdyhdm",
+        "id": "frt8i9w0"
+    },
+    {
+        "name": "产品来源",
+        "table_name": "cply",
+        "id": "362q0c6o"
+    },
+    {
+        "name": "企业代码",
+        "table_name": "qydm",
+        "id": "wsflpqft"
+    },
+    {
+        "name": "负面清单",
+        "table_name": "fmqd",
+        "id": "5s1u1u0c"
+    },
+    {
+        "name": "验货要求",
+        "table_name": "yhyq",
+        "id": "ji1p4923"
+    },
+    {
+        "name": "发货地点",
+        "table_name": "fhdd",
+        "id": "ber5bwg5"
+    },
+    {
+        "name": "天安保险港口信息",
+        "table_name": "tiananports",
+        "id": "bb4ljkk5"
+    },
+    {
+        "name": "货源地",
+        "table_name": "hyd",
+        "id": "rwctr7k2"
+    },
+    {
+        "name": "产品分类",
+        "table_name": "cpfenglb",
+        "id": "u1x5aqci"
+    },
+    {
+        "name": "专业产品分类",
+        "table_name": "zycpfenglb",
+        "id": "i56mt0eh"
+    },
+    {
+        "name": "点对点板块管理",
+        "table_name": "dddbkgl",
+        "id": "avjgy0eb"
+    },
+    {
+        "name": "点对点板块管理.权限详表",
+        "table_name": "ddd_xn1",
+        "id": "b4x95bgj",
+        "mid": "avjgy0eb"
+    },
+    {
+        "name": "侵权产品",
+        "table_name": "fk_qqcp",
+        "id": "c6e8oahl"
+    },
+    {
+        "name": "工厂经营核查",
+        "table_name": "exceptioncheck",
+        "id": "d4hwmjya"
+    },
+    {
+        "name": "工厂经营核查.外部黑名单",
+        "table_name": "getentblacklistbykeyword",
+        "id": "0kepuup5",
+        "mid": "d4hwmjya"
+    },
+    {
+        "name": "工厂经营核查.法院公告",
+        "table_name": "getnoticelistbyname",
+        "id": "hitm98bd",
+        "mid": "d4hwmjya"
+    },
+    {
+        "name": "工厂经营核查.非正常户",
+        "table_name": "getabnormalenterprisebyname",
+        "id": "rjvkibm0",
+        "mid": "d4hwmjya"
+    },
+    {
+        "name": "工厂经营核查.经营异常",
+        "table_name": "getabnormals",
+        "id": "y3wy3atx",
+        "mid": "d4hwmjya"
+    },
+    {
+        "name": "工厂经营核查.欠税信息",
+        "table_name": "getoverduetaxbyname",
+        "id": "iwfmylgz",
+        "mid": "d4hwmjya"
+    },
+    {
+        "name": "工厂经营核查.严重违法",
+        "table_name": "getseriousillegalbyname",
+        "id": "9633qgpl",
+        "mid": "d4hwmjya"
+    },
+    {
+        "name": "工厂经营核查.股权冻结",
+        "table_name": "getjudicialfreezebyname",
+        "id": "0r1e3dz4",
+        "mid": "d4hwmjya"
+    },
+    {
+        "name": "工厂经营核查.欠税合计",
+        "table_name": "getoverduetaxstat",
+        "id": "sbq2omxf",
+        "mid": "d4hwmjya"
+    },
+    {
+        "name": "工厂经营核查.失信被执行企业",
+        "table_name": "getexecutionlistbyname",
+        "id": "730qzmym",
+        "mid": "d4hwmjya"
+    },
+    {
+        "name": "金蝶供应商",
+        "table_name": "jdgysdm",
+        "id": "5411l4sf"
+    },
+    {
+        "name": "RTS销售订单",
+        "table_name": "rtssalesorder",
+        "id": "x9179c2v"
+    },
+    {
+        "name": "RTS销售订单.产品录入",
+        "table_name": "rtsordersgoods1",
+        "id": "rla9gr2l",
+        "mid": "x9179c2v"
+    },
+    {
+        "name": "RTS销售订单.产品资料",
+        "table_name": "rtsordersgoods",
+        "id": "j7k28wg1",
+        "mid": "x9179c2v"
+    },
+    {
+        "name": "RTS销售订单.物流费用",
+        "table_name": "rtssalesorderlogisticsfee",
+        "id": "kdf3xja8",
+        "mid": "x9179c2v"
+    },
+    {
+        "name": "RTS销售订单.费用查看",
+        "table_name": "rtsordersgoodssheet1",
+        "id": "cxefj4hp",
+        "mid": "x9179c2v"
+    },
+    {
+        "name": "RTS采购合同",
+        "table_name": "rtspurchaseorder",
+        "id": "qp1req33"
+    },
+    {
+        "name": "RTS采购合同.产品资料",
+        "table_name": "rtspurchaseordergoods",
+        "id": "lzh1dmyr",
+        "mid": "qp1req33"
+    },
+    {
+        "name": "RTS库存",
+        "table_name": "rtsstock",
+        "id": "p44d7rhu"
+    },
+    {
+        "name": "RTS库存.入库明细",
+        "table_name": "rtsstockdetail",
+        "id": "u6wozh3l",
+        "mid": "p44d7rhu"
+    },
+    {
+        "name": "RTS库存.出库明细",
+        "table_name": "rtsstockdetail1",
+        "id": "p4dpzyim",
+        "mid": "p44d7rhu"
+    },
+    {
+        "name": "RTS财务核算",
+        "table_name": "rtsfinancialaccounting",
+        "id": "vry1qplw"
+    },
+    {
+        "name": "FAQ",
+        "table_name": "faq",
+        "id": "jqt4i3qc"
+    },
+    {
+        "name": "FAQ.FAQ详情",
+        "table_name": "faqsheet1",
+        "id": "r6he584h",
+        "mid": "jqt4i3qc"
+    },
+    {
+        "name": "网络账号",
+        "table_name": "wlzh",
+        "id": "3g68keml"
+    },
+    {
+        "name": "网络账号.人员信息",
+        "table_name": "wlzhsheet",
+        "id": "aggwfo1f",
+        "mid": "3g68keml"
+    },
+    {
+        "name": "核算汇率",
+        "table_name": "hshl",
+        "id": "2q609jgh"
+    },
+    {
+        "name": "销售汇率",
+        "table_name": "xshl",
+        "id": "t21a2wfv"
+    },
+    {
+        "name": "杂项",
+        "table_name": "zx",
+        "id": "339qx412"
+    },
+    {
+        "name": "杂项.子表详情",
+        "table_name": "zxsheet",
+        "id": "965twwr6",
+        "mid": "339qx412"
+    },
+    {
+        "name": "图片中心",
+        "table_name": "tpzx",
+        "id": "t2oth4v6"
+    },
+    {
+        "name": "成员组管理",
+        "table_name": "cyzgl",
+        "id": "yayz1pql"
+    },
+    {
+        "name": "成员组管理.成员名单",
+        "table_name": "cyzglsheet",
+        "id": "fvji0eg5",
+        "mid": "yayz1pql"
+    },
+    {
+        "name": "商品编码分类表",
+        "table_name": "spbmflb",
+        "id": "tyfgv40s"
+    },
+    {
+        "name": "商品编码分类表.分类详情",
+        "table_name": "spbmflbsheet",
+        "id": "kkfhhu0a",
+        "mid": "tyfgv40s"
+    },
+    {
+        "name": "多选控制",
+        "table_name": "dxkz",
+        "id": "tj8k3d04"
+    },
+    {
+        "name": "多选控制.选择内容",
+        "table_name": "dxkzsheet",
+        "id": "yi3730dk",
+        "mid": "tj8k3d04"
+    },
+    {
+        "name": "系统问题提交",
+        "table_name": "xtwjtj",
+        "id": "pjmfbtp8"
+    },
+    {
+        "name": "系统问题提交.处理跟进",
+        "table_name": "xtwjclgj",
+        "id": "5_0g3m6g",
+        "mid": "pjmfbtp8"
+    }
+]

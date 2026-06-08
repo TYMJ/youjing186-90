@@ -1,0 +1,1 @@
+-- select  b.cgxs FROM cght a ,cghtsheet b  WHERE  a.rid = b.pid and a.hthm ='E25UV05327-N2-5515530-6N'

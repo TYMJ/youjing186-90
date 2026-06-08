@@ -1,0 +1,324 @@
+.round {
+  .el-input__wrapper {
+    border-radius: var(--el-border-radius-round);
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .el-input__suffix {
+    right: 15px;
+  }
+}
+.el-form-item__label {
+  color: var(--a-text-color);
+}
+.el-overlay.is-message-box {
+  transition: 0.1s;
+}
+.el-dialog {
+  --el-dialog-padding-primary: 15px;
+  &.auto-height{
+    .el-dialog__body{
+      height:calc(100% - 70px );
+    }
+  }
+  &.tiny-width {
+    width: var(--a-dialog-tiny-width);
+  }
+  &.tiny-height {
+    height: var(--a-dialog-tiny-height);
+  }
+  &.small-width {
+    width: var(--a-dialog-small-width);
+  }
+  &.small-height{
+    height: var(--a-dialog-small-height);
+  }
+  &.normal-width {
+    width: var(--a-dialog-normal-width);
+  }
+  &.normal-height {
+    height: var(--a-dialog-normal-height);
+  }
+  &.large-width {
+    width: var(--a-dialog-large-width);
+  }
+  &.large-height {
+    height: var(--a-dialog-large-height);
+  }
+  &.huge-width{
+    width: var(--a-dialog-huge-width);
+  }
+  &.huge-height{
+    width: var(--a-dialog-huge-height);
+  }
+  &.full-width {
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  &.full-height {
+    height: 100%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+  &.tiny-size{
+    width: var(--a-dialog-tiny-width);
+    height: var(--a-dialog-tiny-height);
+  }
+  &.small-size{
+    width: var(--a-dialog-small-width);
+    height: var(--a-dialog-small-height);
+  }
+  &.normal-size{
+    width: var(--a-dialog-normal-width);
+    height: var(--a-dialog-normal-height);
+  }
+  &.large-size{
+    margin-top: var(--a-dialog-large-top);
+    width: var(--a-dialog-large-width);
+    height: var(--a-dialog-large-height);
+  }
+  &.huge-size{
+    margin-top: var(--a-dialog-hug-top);
+    width: var(--a-dialog-huge-width);
+    height: var(--a-dialog-huge-height);
+  }
+  &.full-size{
+    height: 100%;
+    width: 100%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+}
+.el-input-number .el-input__inner {
+  text-align: left;
+}
+.any-loading-dialog {
+  width: 450px;
+  height: 200px;
+  .el-dialog__body {
+    position: relative;
+    // height: 150px;
+  }
+  .el-dialog__header{
+    position: relative;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: unset;
+    display: inline-block;
+    white-space: nowrap;
+    width: calc( 100% - 32px);
+    font-size:16px;
+  }
+}
+
+.small-dialog {
+  width: 600px !important;
+  height: 400px !important;
+  &-content {
+    height: 320px !important;
+    &.with-footer {
+      height: 270px !important;
+    }
+  }
+
+  &.big-width {
+    width: 780px !important;
+  }
+}
+
+.normal-input-dialog {
+  width: 400px !important;
+  height: max-content !important;
+  &-body {
+    &-content {
+      height: max-content;
+      margin-bottom: 10px;
+    }
+    &-edit {
+      width: 100%;
+    }
+  }
+  .el-dialog__footer {
+    padding-top: 0px !important;
+  }
+}
+
+.el-dialog__body {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+.el-dialog__close {
+  font-size: 24px;
+  font-weight: 600;
+  margin-top: -4px;
+}
+
+.el-button i.iconfont {
+  font-size: 12px;
+}
+.el-checkbox {
+  font-weight: unset;
+}
+.el-avatar {
+  user-select: none;
+}
+.a-input-inner-dropdown {
+  vertical-align: middle;
+  line-height: 32px;
+  color: var(--el-input-icon-color);
+}
+
+//el-button
+.el-button {
+  font-weight: unset;
+}
+
+//el-menu
+.el-menu {
+  &.no-border {
+    border-right: 0px;
+  }
+}
+
+.el-sub-menu-popover {
+  border:unset!important;
+  .el-menu {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  & .el-menu--popup {
+    flex-wrap: wrap;
+    width: 480px;
+    display: flex;
+    & .el-menu-item {
+      width: 160px;
+    }
+  }
+}
+
+.el-time-panel {
+  width: 160px;
+}
+
+.el-tabs__item {
+  font-weight: unset;
+}
+.el-popper{
+  white-space: pre;
+}
+// .any-tabs {
+//   & >.
+//   // .el-tabs__item {
+//   //   height: 32px;
+//   //   line-height: 32px;
+//   // }
+// }
+.any-tabs {
+  .el-tabs__item.is-active {
+    // color: var(--el-color-primary-light-1);
+    // font-weight: 500;
+    border-bottom: solid 2px var(--el-color-primary) !important;
+  }
+  .el-tabs__header {
+    margin: 0 0 8px;
+  }
+  .el-tabs__item {
+    font-weight: unset;
+  }
+  &.small {
+    .el-tabs__item {
+      height: 32px;
+      line-height: 32px;
+    }
+    .el-tabs__header {
+      height: 32px;
+      line-height: 32px;
+    }
+  }
+}
+
+//.el-input
+//calc(5px + 14px + 12px);计算大小
+.el-input.is-disabled.field-editor-inner {
+  // .el-input__inner {
+  //   cursor: text;
+  // }
+  // .el-input__wrapper{
+  //   background-color: unset;
+  // }
+}
+
+// .field-editor-inner {
+//   .el-input__inner{
+//     // padding-left: 11px!important;
+//     // padding-right: 11px!important;
+//   }
+//   &.suffix1 {
+//     .el-input__inner {
+//       padding-right: 31px !important;
+//     }
+//   }
+//   &.suffix2 {
+//     .el-input__inner {
+//       padding-right: 45px !important;
+//     }
+//   }
+//   &.suffix3 {
+//     .el-input__inner {
+//       padding-right: 59px !important;
+//     }
+//   }
+//   &.suffix4 {
+//     .el-input__inner {
+//       padding-right: 63px !important;
+//     }
+//   }
+//   &.suffix4 {
+//     .el-input__inner {
+//       padding-right: 77px !important;
+//     }
+//   }
+
+//   &.prefix1 {
+//     .el-input__inner {
+//       padding-left: 31px !important;
+//     }
+//   }
+//   &.prefix2 {
+//     .el-input__inner {
+//       padding-left: 45px !important;
+//     }
+//   }
+//   &.prefix3 {
+//     .el-input__inner {
+//       padding-left: 59px !important;
+//     }
+//   }
+//   &.prefix4 {
+//     .el-input__inner {
+//       padding-left: 63px !important;
+//     }
+//   }
+//   &.prefix4 {
+//     .el-input__inner {
+//       padding-left: 77px !important;
+//     }
+//   }
+
+// }
+
+.any-notify{
+  user-select: none;
+  .el-notification__icon{
+    font-size:20px;
+  }
+  .el-notification__title{
+    font-size:15px;
+    font-weight: normal;
+  }
+  .el-notification__group{
+    margin-left: 8px;
+  }
+}
