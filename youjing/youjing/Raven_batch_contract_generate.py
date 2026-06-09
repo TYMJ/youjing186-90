@@ -5,6 +5,7 @@ import json
 import subprocess
 from collections import defaultdict
 from datetime import datetime, date
+import io
 
 from openpyxl import load_workbook
 from openpyxl.drawing.image import Image as XLImage
@@ -93,7 +94,7 @@ def _resolve_template_path(company, is_tedi):
     base_dir = os.path.dirname(__file__)
 
     candidates = [
-        os.path.join(data_upload, 'contract_templates', fname),
+        os.path.join(data_upload, 'template', fname),
         os.path.join(data_upload, 'addonfiles', fname),
         os.path.join(base_dir, '..', 'frontend', 'static', 'contract_templates', fname),
         os.path.join(base_dir, '..', 'frontend', 'static', fname),
@@ -134,6 +135,32 @@ def _try_add_image(ws, image_abs_path, anchor_cell):
         ws.add_image(img)
     except Exception:
         pass
+
+
+def _resolve_yytp_to_path(yytp_raw):
+    if not yytp_raw:
+        return ""
+    s = str(yytp_raw).strip()
+    if s in ("[]", "{}", "null", "None"):
+        return ""
+    if s.startswith("[") or s.startswith("{"):
+        try:
+            obj = json.loads(s.replace("'", '"'))
+            if isinstance(obj, list) and obj:
+                src = obj[0].get("src", "")
+                if src:
+                    p = _abs_upload(src)
+                    return p if os.path.exists(p) else ""
+            elif isinstance(obj, dict):
+                for k in ("src", "path", "url"):
+                    v = obj.get(k)
+                    if v:
+                        p = _abs_upload(v)
+                        return p if os.path.exists(p) else ""
+        except Exception:
+            pass
+    p = _abs_upload(s)
+    return p if os.path.exists(p) else ""
 
 
 def _collect_cggd_rows(rid_list, user_name):
@@ -399,6 +426,25 @@ def _fill_main_sheet(ws, first_line, totals, line_count, ctx, sign_path, anti_co
     ws['F16'] = first_line.get('cpsm', '')
     ws['N16'] = f"请注意开票货源地为：{first_line.get('hyd', '')}\n本合同为附页子合同的总合同，共计{line_count}个子合同"
 
+    # B16插入产品图片：先查专属产品表，没有再查专业产品表
+    item_code = first_line.get("khhh") or first_line.get("bjhh")
+    if item_code:
+        raw_img = ""
+        row_img = _first_row(
+            "SELECT yytp FROM zscp WHERE cpbh=:cpbh AND IFNULL(yytp,'')<>'' LIMIT 1", {"cpbh": item_code}
+        )
+        if row_img:
+            raw_img = row_img.get("yytp") or ""
+        if not raw_img:
+            row_img = _first_row(
+                "SELECT yytp FROM cjcp WHERE cpbh=:cpbh AND IFNULL(yytp,'')<>'' LIMIT 1", {"cpbh": item_code}
+            )
+            if row_img:
+                raw_img = row_img.get("yytp") or ""
+        img_path = _resolve_yytp_to_path(raw_img)
+        if img_path:
+            _try_add_image(ws, img_path, "B16")
+
     ws['B30'] = '七、结算方式：' + str(ctx.get('jsfs') or '')
 
     if htjj.get('dz'):
@@ -584,7 +630,7 @@ async def api_generate_contract_batch(request):
         if warnings:
             warning_name = datetime.now().strftime('%Y-%m-%d') + '.txt'
             warning_abs = os.path.join(output_root, warning_name)
-            with open(warning_abs, 'w', encoding='utf-8') as fp:
+            with io.open(warning_abs, 'w', encoding='utf-8') as fp:
                 fp.write('\n'.join(dict.fromkeys(warnings)))
             warning_file = _to_upload_rel_path(warning_abs)
 
