@@ -175,10 +175,7 @@ def _autofit_nb_row15(ws, nbpm="", zhwbzh=""):
     if h <= 0:
         h = _get_row_height(ws, 15)
 
-    est = max(
-        _estimate_text_row_height(nbpm, col_units=20),
-        _estimate_text_row_height(zhwbzh, col_units=18),
-    )
+    est = max(_estimate_text_row_height(nbpm, col_units=20), _estimate_text_row_height(zhwbzh, col_units=18))
     h = max(h, est, 95)
     if h > 400:
         h = 400
@@ -262,25 +259,16 @@ def _autofit_nb_row18(ws, kppm_line, is_fl=False):
 
 
 def _load_detail_yytp_json(s, is_fl, hhbz, wyzd):
-    """按 source.pas 查产品图 yytp：普通→lscp.lshh=hhbz，辅料→cghtsheet.wyzd。 先专属产品，没有查专业产品"""
+    """按 source.pas 查产品图 yytp：普通→lscp.lshh=hhbz，辅料→cghtsheet.wyzd。"""
     hhbz = str(hhbz or "").strip()
     wyzd = str(wyzd or "").strip()
     if not is_fl and hhbz:
         row_img = s.execute(
-            sql_text("SELECT yytp FROM zscp WHERE lshh=:lshh AND LENGTH(yytp) > 5"), {"lshh": hhbz}
+            sql_text("SELECT yytp FROM lscp WHERE lshh=:lshh AND LENGTH(yytp) > 5"), {"lshh": hhbz}
         ).fetchone()
-        if row_img:
-            raw_img = row_img.get("yytp") or ""
-        if not raw_img:
-            row_img = s.execute(
-                sql_text("SELECT yytp FROM cjcp WHERE lshh=:lshh AND LENGTH(yytp) > 5"), {"lshh": hhbz}
-            ).fetchone()
-            if row_img:
-                raw_img = row_img.get("yytp") or ""
     elif is_fl and wyzd and hhbz:
         row_img = s.execute(
-            sql_text("SELECT yytp FROM cghtsheet WHERE wyzd=:wyzd AND LENGTH(yytp) > 5"),
-            {"wyzd": wyzd},
+            sql_text("SELECT yytp FROM cghtsheet WHERE wyzd=:wyzd AND LENGTH(yytp) > 5"), {"wyzd": wyzd}
         ).fetchone()
     else:
         return ""
