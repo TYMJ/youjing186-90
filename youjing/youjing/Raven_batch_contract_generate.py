@@ -336,7 +336,7 @@ def _get_dforder(order_id):
 
 
 def _calc_totals(lines):
-    zxs = sum(_to_float(r.get('cgxs')) for r in lines)
+    zxs = int(sum(_to_float(r.get('cgxs')) for r in lines)) # 箱数取整
     zsl = sum(_to_float(r.get('cgsl')) for r in lines)
     zjg = sum(_to_float(r.get('zje')) for r in lines)
     sfhs1 = '是'
@@ -430,7 +430,7 @@ def _fill_detail_sheet(ws, lines, company, cpbh_show, sign_path):
         ws[f'G{excel_row}'] = row.get('cgsl', '')
         ws[f'H{excel_row}'] = row.get('cgjg', '')
         ws[f'I{excel_row}'] = row.get('zje', '')
-        ws[f'J{excel_row}'] = row.get('jhrq', '')
+        ws[f'J{excel_row}'] = str(row.get('jhrq', ''))[:10] # 交货日期只显示年月日
         ws[f'K{excel_row}'] = row.get('yjcq', '')
 
         if is_jingchi:
