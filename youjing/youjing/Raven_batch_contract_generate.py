@@ -138,6 +138,29 @@ def _try_add_image(ws, image_abs_path, anchor_cell, max_width=None, max_height=N
             if scale > 0:
                 img.width = int(src_w * scale)
                 img.height = int(src_h * scale)
+
+            # 居中：根据单元格可用空间计算偏移量
+            from openpyxl.drawing.spreadsheet_drawing import OneCellAnchor, AnchorMarker
+            from openpyxl.drawing.xdr import XDRPositiveSize2D
+            m = re.match(r'([A-Z]+)(\d+)', str(anchor_cell))
+            if m:
+                col_str, row_num = m.group(1), int(m.group(2))
+                col_idx = 0
+                for ch in col_str:
+                    col_idx = col_idx * 26 + (ord(ch) - 64)
+                col_idx -= 1
+                row_idx = row_num - 1
+                PX_TO_EMU = 9525
+                col_off = int(max(0, (max_width - img.width) / 2) * PX_TO_EMU)
+                row_off = int(max(0, (max_height - img.height) / 2) * PX_TO_EMU)
+                marker = AnchorMarker(col=col_idx, row=row_idx, colOff=col_off, rowOff=row_off)
+                img.anchor = OneCellAnchor(
+                    _from=marker,
+                    ext=XDRPositiveSize2D(cx=int(img.width * PX_TO_EMU), cy=int(img.height * PX_TO_EMU))
+                )
+                ws.add_image(img)
+                return
+
         img.anchor = anchor_cell
         ws.add_image(img)
     except Exception:
