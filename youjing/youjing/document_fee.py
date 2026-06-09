@@ -430,6 +430,9 @@ async def view_saier_document_fee_generate(request):  # 单证费用
         if mjsb == "1" and i4 > 0:
             files = process_report_file(file_path, save_path, bgpm, rmb, jl, "sbjem", user.username, files, s)
 
+        if not files:
+            return json_result(-1, "没有可导出的数据, 费用金额为0")
+
         logger.error(f"files:{files}")
         filename = ""
         if len(files) > 0:

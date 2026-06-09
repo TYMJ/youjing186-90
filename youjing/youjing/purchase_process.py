@@ -1101,8 +1101,8 @@ async def view_saier_purchase_process_batch_cgrk_btn(request):
                         if sbcx!='' and sbcx!=None:
                             jcbh = b[0].get('bz','') + str(sbcx)
                     
-                    d = run_sql(f"select bz from cyzglsheet where (zm='特殊进仓编号代码') and (xm='{khmc}')  and (bz1='无') limit 1")
-                    if len(d)>0:
+                    b = run_sql(f"select bz from cyzglsheet where (zm='特殊进仓编号代码') and (xm='{khmc}')  and (bz1='无') limit 1")
+                    if len(b)>0:
                         jcbh = hthm
 
                     if jcbh != '' and jcbh != None:

@@ -44,9 +44,9 @@ def _get_merged_cell_addresses(ws):
             try:
                 count = ma.count
                 for i in range(1, count + 1):
-                    addresses.append(ma(i).address.replace('$', ''))
+                    addresses.append(ma(i).address.replace("$", ""))
             except (AttributeError, TypeError):
-                addresses.append(ma.address.replace('$', ''))
+                addresses.append(ma.address.replace("$", ""))
     except Exception:
         pass
     return addresses
@@ -74,7 +74,7 @@ def insert_data_row(ws, template_row, insert_row):
     src_rng = ws.range((template_row, 1), (template_row, 3))
     tgt_rng = ws.range((insert_row, 1), (insert_row, 3))
     src_rng.copy()
-    tgt_rng.paste(paste='all')
+    tgt_rng.paste(paste="all")
 
 
 def delete_row_at(ws, row_num):
@@ -414,8 +414,8 @@ async def view_saier_special_fee_report(request):
                         else:
                             result = cn2an.an2cn(what)
 
-                    ws[f'B{7 + e}'].value = result
-                    ws[f'C{7 + e}'].value = mj
+                    ws[f"B{7 + e}"].value = result
+                    ws[f"C{7 + e}"].value = mj
                     if result:
                         adjust_row_height(ws, 7 + e, col="B")
                     ws.range(f"A{8 + e}:D{8 + e}").merge()
@@ -482,8 +482,8 @@ async def view_saier_special_fee_report(request):
                         else:
                             result = cn2an.an2cn(what)
 
-                    ws[f'B{7 + e}'].value = result
-                    ws[f'C{7 + e}'].value = mj
+                    ws[f"B{7 + e}"].value = result
+                    ws[f"C{7 + e}"].value = mj
                     if result:
                         adjust_row_height(ws, 7 + e, col="B")
                     ws.range(f"A{8 + e}:D{8 + e}").merge()
@@ -500,6 +500,9 @@ async def view_saier_special_fee_report(request):
                     if wb is not None:
                         wb.close()
                     raise
+
+            if not files:
+                return json_result(-1, "没有可导出的数据, 费用金额为0")
         finally:
             try:
                 app.quit()
