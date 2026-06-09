@@ -126,11 +126,18 @@ def _get_sign_image_path(cpbh):
     return _abs_upload(rows[0].get('path'))
 
 
-def _try_add_image(ws, image_abs_path, anchor_cell):
+def _try_add_image(ws, image_abs_path, anchor_cell, max_width=None, max_height=None):
     try:
         if not image_abs_path or not os.path.exists(image_abs_path):
             return
         img = XLImage(image_abs_path)
+        if max_width and max_height:
+            src_w = max(float(img.width or 1), 1.0)
+            src_h = max(float(img.height or 1), 1.0)
+            scale = min(max_width / src_w, max_height / src_h)
+            if scale > 0:
+                img.width = int(src_w * scale)
+                img.height = int(src_h * scale)
         img.anchor = anchor_cell
         ws.add_image(img)
     except Exception:
@@ -161,6 +168,34 @@ def _resolve_yytp_to_path(yytp_raw):
             pass
     p = _abs_upload(s)
     return p if os.path.exists(p) else ""
+
+
+def _get_cell_display_pixels(ws, anchor_cell):
+    import re
+    from openpyxl.utils import get_column_letter
+    m = re.match(r'([A-Z]+)(\d+)', str(anchor_cell or ''))
+    if not m:
+        return 120, 100
+    col_letter, row_no = m.group(1), int(m.group(2))
+
+    def _col_px(c):
+        cd = ws.column_dimensions.get(get_column_letter(c))
+        return int((cd.width if cd and cd.width else 8.43) * 7.6)
+
+    def _row_px(r):
+        rd = ws.row_dimensions.get(r)
+        return int((rd.height if rd and rd.height else 15) * 1.333)
+
+    for merged in ws.merged_cells.ranges:
+        if str(anchor_cell) in merged:
+            col_px = sum(_col_px(c) for c in range(merged.min_col, merged.max_col + 1))
+            row_px = sum(_row_px(r) for r in range(merged.min_row, merged.max_row + 1))
+            return max(20, col_px - 8), max(20, row_px - 8)
+
+    cd = ws.column_dimensions.get(col_letter)
+    rd = ws.row_dimensions.get(row_no)
+    return (max(20, int((cd.width if cd and cd.width else 8.43) * 7.6) - 8),
+            max(20, int((rd.height if rd and rd.height else 15) * 1.333) - 8))
 
 
 def _collect_cggd_rows(rid_list, user_name):
@@ -443,7 +478,8 @@ def _fill_main_sheet(ws, first_line, totals, line_count, ctx, sign_path, anti_co
                 raw_img = row_img.get("yytp") or ""
         img_path = _resolve_yytp_to_path(raw_img)
         if img_path:
-            _try_add_image(ws, img_path, "B16")
+            max_w, max_h = _get_cell_display_pixels(ws, 'B16')
+            _try_add_image(ws, img_path, 'B16', max_width=max_w, max_height=max_h)
 
     ws['B30'] = '七、结算方式：' + str(ctx.get('jsfs') or '')
 
