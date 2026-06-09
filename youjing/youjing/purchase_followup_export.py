@@ -262,14 +262,21 @@ def _autofit_nb_row18(ws, kppm_line, is_fl=False):
 
 
 def _load_detail_yytp_json(s, is_fl, hhbz, wyzd):
-    """按 source.pas 查产品图 yytp：普通→lscp.lshh=hhbz，辅料→cghtsheet.wyzd。"""
+    """按 source.pas 查产品图 yytp：普通→lscp.lshh=hhbz，辅料→cghtsheet.wyzd。 先专属产品，没有查专业产品"""
     hhbz = str(hhbz or "").strip()
     wyzd = str(wyzd or "").strip()
     if not is_fl and hhbz:
         row_img = s.execute(
-            sql_text("SELECT yytp FROM lscp WHERE lshh=:lshh AND LENGTH(yytp) > 5"),
-            {"lshh": hhbz},
+            sql_text("SELECT yytp FROM zscp WHERE lshh=:lshh AND LENGTH(yytp) > 5"), {"lshh": hhbz}
         ).fetchone()
+        if row_img:
+            raw_img = row_img.get("yytp") or ""
+        if not raw_img:
+            row_img = s.execute(
+                sql_text("SELECT yytp FROM cjcp WHERE lshh=:lshh AND LENGTH(yytp) > 5"), {"lshh": hhbz}
+            ).fetchone()
+            if row_img:
+                raw_img = row_img.get("yytp") or ""
     elif is_fl and wyzd and hhbz:
         row_img = s.execute(
             sql_text("SELECT yytp FROM cghtsheet WHERE wyzd=:wyzd AND LENGTH(yytp) > 5"),
