@@ -2094,8 +2094,10 @@ async def api_export_purchase_followup(request):
 
         warning_msg = ""
         warning_path = ""
+        file_name = ""
         if any("诚信" in x for x in tmpstr2):
-            warning_path = os.path.join(config.data_upload_path, f"{dt.now().strftime('%Y-%m-%d')}_诚信报告.txt")
+            file_name = f"{dt.now().strftime('%Y-%m-%d')}_诚信报告.txt"
+            warning_path = os.path.join(config.tmp_path, file_name)
             with io.open(warning_path, "w", encoding="utf-8") as f:
                 f.write("\n".join(tmpstr2))
             warning_msg = f"有需提交诚信报告的工厂，已生成日志: {warning_path}"
@@ -2105,7 +2107,7 @@ async def api_export_purchase_followup(request):
             data_out = {"path": one["path"], "name": one["name"], "hthm": one["hthm"]}
             if warning_msg:
                 data_out["warning"] = warning_msg
-                data_out["warning_path"] = warning_path
+                data_out["warning_path"] = file_name
             msg = "采购跟单合同导出成功"
             if errors:
                 msg += f"（跳过: {'; '.join(errors)}）"
@@ -2129,7 +2131,7 @@ async def api_export_purchase_followup(request):
         }
         if warning_msg:
             data_out["warning"] = warning_msg
-            data_out["warning_path"] = warning_path
+            data_out["warning_path"] = file_name
         msg = f"批量导出成功，共 {len(generated_files)} 份"
         if errors:
             msg += f"；跳过: {'; '.join(errors[:5])}"
