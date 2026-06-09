@@ -1171,7 +1171,7 @@ def _export_single_contract(s, user, record_id, gs, gs1, pdf, username, tmpstr2,
                         logger.error(f"填充底部信息，结算方式: {jsfs}, 箱数: {htzxs}, 交货期: {jhrq}")
                         if is_yiwu:
                             logger.error("义乌模板底部赋值")
-                            cells["C26"] = htzxs if "箱" in htzxs else f"{htzxs}箱"
+                            cells["C26"] = htzxs if "箱" in htzxs else f"{int(float(htzxs))}箱"
                             cells["D27"] = jhrq_display
                             if not is_fl:
                                 cells.update(
@@ -1199,7 +1199,7 @@ def _export_single_contract(s, user, record_id, gs, gs1, pdf, username, tmpstr2,
                                 )
                         else:
                             logger.error("宁波模板底部赋值")
-                            cells["D25"] = htzxs if "箱" in htzxs else f"{htzxs}箱"
+                            cells["D25"] = htzxs if "箱" in htzxs else f"{int(float(htzxs))}箱"
                             cells["E26"] = jhrq_display
                             if not is_fl:
                                 cells.update(
@@ -1656,7 +1656,7 @@ def _export_single_contract(s, user, record_id, gs, gs1, pdf, username, tmpstr2,
                             cover_cells.update(
                                 {
                                     "B24": f"四、外箱包装要求：{bzyq}",
-                                    "D25": f"{zxs1}箱",
+                                    "D25": f"{int(float(zxs1))}箱",
                                     "E26": jhrq_display,
                                     "B30": f"七、结算方式：{jsfs}",
                                     "B47": f"跟单人员: {gdry}({lxdh2}/{ydhm2})",
@@ -1693,7 +1693,7 @@ def _export_single_contract(s, user, record_id, gs, gs1, pdf, username, tmpstr2,
                             cover_cells.update(
                                 {
                                     "B24": f"四、结算方式: {jsfs}",
-                                    "D25": f"{zxs1}箱",
+                                    "D25": f"{int(float(zxs1))}箱",
                                     "E26": jhrq_display,
                                     "B16": f"具体见附页共{ys3}页",
                                     "B43": f"跟单人员: {gdry}({lxdh2}/{ydhm2})",

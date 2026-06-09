@@ -564,8 +564,8 @@ async def view_saier_purchase_process_save_before(request):
         org = get_user_path(user.username)
         path = org.get('path','')
         pos = org.get('position')
-        # if not '跟单' in path and not '跟单' in pos:
-        #     return json_result(-1, '不好意思,您没有权限更改此资料,请与跟单人员联系,谢谢!')
+        if not '跟单' in path and not '跟单' in pos:
+            return json_result(-1, '不好意思,您没有权限更改此资料,请与跟单人员联系,谢谢!')
         
         org = get_user_path(gdry)
         uid = org.get('rid','')
@@ -1427,6 +1427,32 @@ async def view_saier_purchase_process_batch_cgrk_btn(request):
 
         s.commit()
         return json_result(1, '操作成功', filename)
+    except:
+        s.rollback()
+        logger.error(trace_error())
+        return json_result(-1, trace_error())
+    finally:
+        s.close()
+
+
+# 采购跟单的跟单查看变更
+@any_route('/api/saier/purchase_process/save/after', methods=['POST', 'GET'])
+@require_token
+async def view_saier_purchase_process_batch_cgrk_btn(request):
+    s = Session()
+    user = request.current_user
+    j = await request.json()
+    try:
+        d = s.query(cggd).filter(cggd.rid==j.get('rid')).first()
+        if d :
+            gdry = d.gdry
+            org = get_user_path(gdry)
+            uid = org.get('rid','')
+            if uid != d.uid:
+                d.uid = uid
+                s.add(d)
+                s.commit()
+        return json_result(1, '操作成功')
     except:
         s.rollback()
         logger.error(trace_error())
