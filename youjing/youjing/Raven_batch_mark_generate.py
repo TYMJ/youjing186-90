@@ -67,9 +67,9 @@ def _get_template_path(mark_type, env_opt, region_opt):
     # region_opt: 1BP, 2拉脱维亚
     # mark_type: 内外箱唛头/常规唛头/港加特标唛头/港加特标加警语唛头/多货号唛头
     # 按 Pascal 命名映射成模板文件名（你可继续补齐实际文件）
-    base = getattr(config, 'data_upload_path', '')
-    tpl_dir = os.path.join(base, 'mark_templates')
-
+    # base = getattr(config, 'data_upload_path', '')
+    # tpl_dir = os.path.join(base, 'template')
+    tpl_dir = os.path.join(config.data_upload_path, 'template')
     is_lv = str(region_opt) == '2'
     prefix = '拉港' if is_lv else ''
 
@@ -136,7 +136,7 @@ def _get_detail_rows(order_number):
 
 def _get_product_info(cpbh):
     rows = run_sql("""
-        SELECT krtm,djpmw,tsbj,khlb,cxmc,jgby,tmtp,cpbh,jldw,czkrhh
+        SELECT krtm,djpmw,tsbj,khlb,cxmc,jgby,tmtp,cpbh,jldw
         FROM zscp
         WHERE (cpbh=:cpbh) OR ((krhh=:cpbh1) AND (krhh<>'') AND (krhh IS NOT NULL))
         LIMIT 1
@@ -147,7 +147,7 @@ def _get_product_info(cpbh):
 def _get_wypm_name(cpbh):
     rows = run_sql("""
         SELECT djpmw
-        FROM wypm
+        FROM zscp
         WHERE (cpbh=:cpbh) OR ((krhh=:cpbh1) AND (krhh<>'') AND (krhh IS NOT NULL))
         LIMIT 1
     """, {'cpbh': str(cpbh), 'cpbh1': str(cpbh)})
