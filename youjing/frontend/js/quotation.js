@@ -10,6 +10,11 @@ const quotation_field_change = (evt_id, opts) => {
     } = opts
     let row = current_record
     let n = module.name
+    if (field.full_name == n + '.审批结果') {
+        if (recordset.val('审批申请')==_.user.username){
+            _.platform.active.toolbar.dicts.save.disabled = false;
+        }
+    }
     if (field.full_name == n + '.客户名称') {
         if (recordset.val('客户名称') != '') {
             _.http
@@ -661,7 +666,7 @@ const quotation_field_change = (evt_id, opts) => {
                                         recordset.val('产品资料.代开金额') -
                                         recordset.val('产品资料.佣    金')) /
                                     recordset.val('产品资料.客户RMB单价')
-                                recordset.val('产品资料.利 润 率', round(mll1,2))
+                                recordset.val('产品资料.利 润 率', round(mll1,5))
                                 if (mldx > 0 && mll1 < mldx) {
                                     if (
                                         recordset.val('强制更新') === '' &&
@@ -691,7 +696,7 @@ const quotation_field_change = (evt_id, opts) => {
                                         recordset.val('产品资料.代开金额') -
                                         recordset.val('产品资料.佣    金')) /
                                     mjdj
-                                recordset.val('产品资料.利 润 率', round(mll1,2))
+                                recordset.val('产品资料.利 润 率', round(mll1,5))
                                 if (mldx > 0 && mll1 < mldx) {
                                     if (
                                         recordset.val('强制更新') === '' &&
@@ -772,7 +777,7 @@ const quotation_field_change = (evt_id, opts) => {
                                 recordset.val('产品资料.换汇成本', hhcb)
                             }
                             // console.log('毛利率: ', round(mll,2))
-                            recordset.val('产品资料.利 润 率', round(mll, 2))
+                            recordset.val('产品资料.利 润 率', round(mll, 5))
                             if (mldx > 0 && mll < mldx) {
                                 if (
                                     recordset.val('强制更新') === '' &&
@@ -1107,6 +1112,11 @@ _.evts.on(_.evtids.RECORD_FIELD_CHANGED, quotation_field_change, '客户报价')
 const quotation_recordLoad = (evt_id, recordset) => {
     let n = recordset.module.name
     let user = _.user.username
+    if (recordset.val('审批申请') == _.user.username && recordset.val('wf_status') == 1) {
+        recordset.module.field_by_full_name('审批结果').disabled = false;
+        recordset.module.field_by_full_name('审批结果').readonly = false;
+        recordset.module.field_by_full_name('审批结果').view.can_modi_in_workflow = true;
+    }
     if (user == 'zjnblh') {
         recordset.module.field_by_full_name(n + '.出运起始').show()
         recordset.module.field_by_full_name(n + '.出运结束').show()
@@ -1404,6 +1414,7 @@ const quotation_recordLoad = (evt_id, recordset) => {
                 recordset.module.field_by_full_name(n + '.审批申请').disabled = true
                 // recordset.module.field_by_full_name(n + '.报价审批').disabled = true
             }
+            recordset.modified = false
             recordset.refresh_ui()
         })
         .catch((err) => {
@@ -2166,6 +2177,12 @@ const quotation_Form_Show = (evt_id, form) => {
         icon: 'any-server-update',
         divided: true,
     })
+    btns.push({
+        name: 'DIY_btn',
+        caption: '自定义报表',
+        icon: 'any-server-update',
+        divided: true,
+    })
     form.toolbar.insert(
         [{
             name: 'export_btn',
@@ -2176,6 +2193,9 @@ const quotation_Form_Show = (evt_id, form) => {
         }, ],
         'close',
     )
+    if (form.is_editor) {
+        form.toolbar.show('workflow_approve', false)
+    }
 }
 _.evts.on([_.evtids.MODULE_SEARCH_SHOW, _.evtids.MODULE_EDITOR_SHOW],quotation_Form_Show,'客户报价')
 
@@ -2196,7 +2216,37 @@ const quotation_form_BtnClick = async(evt_id, btn, form) => {
             recordset.module.field_by_full_name('客户报价.报价单号').readonly = false
         }
     }
+    if (btn.name == 'DIY_btn') {
+        let rids = form.current_rids.value
+        if (rids.length == 0) {
+            if (form.current_rid.value != '' && form.current_rid.value != null) {
+                rids = [form.current_rid.value]
+            }
+        }
+        console.log(1122211)
+        if (rids.length == 0) {
+            _.ui.message.error('请先选中要导出的记录')
+            return
+        }
+        _.http.post('/api/quotation/export/detailed/diy/list', {
+            rids: rids,
+        }).then(res => {
+            let d = res.data;
+            console.log(1231589)
+            if (d != '' && d != null) {
+                _.http.download("/api/tmp/file/get", {
+                        file: d
+                    },
+                    d
+                );
+                console.log(7891011)
+            }
 
+        }).catch(err => {
+            console.log(err)
+            _.ui.message.error(err.msg)
+        })
+    }
     if (btn.name == 'items_source_btn') {
         let recordset = form.recordset
         let t = recordset.tables['产品资料']
@@ -2452,7 +2502,7 @@ const quotation_EditorChildShow = (evt_id, form) => {
         })
         btns.push({
             name: 'import_photo_btn',
-            caption: '导入图片',
+            caption: '导入Excel',
             icon: 'any-server-update',
         })
         btns.push({
@@ -2554,7 +2604,7 @@ function item_weight_check(net, gross) {
 
 const quotation_after_save = (evt_id, recordset) => {
     if (recordset.val('审批申请') == '') return
-    if (recordset.val('wf_status') == 0 || recordset.val('wf_status') == 3){
+    if ((recordset.val('wf_status') == 0 || recordset.val('wf_status') == 3) && recordset.val('业务人员') == _.user.username){
         _.http.post('/api/saier/workflow/start', {
             rid: recordset.val('rid'),
             module: recordset.module.name,

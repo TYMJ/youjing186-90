@@ -94,7 +94,7 @@ async def view_saier_quotation_bgpm_change(request):
     try:
         data = {}
         bgpm = j.get('bgpm', '') 
-        d = run_sql(f"select cpfl,yjfl,ejfl,sjfl,flmc,cplb,yjlb,ejlb,sjlb from zscp where (bgpm='{bgpm}') and (ifnull(yjfl,'')<>'') order by sid desc limit 1")
+        d = run_sql(f"select cpfl,yjfl,ejfl,sjfl,flmc,cplb from zscp where (bgpm='{bgpm}') and (ifnull(yjfl,'')<>'') order by sid desc limit 1")
         if len(d)>0:
             data = d[0]
 
