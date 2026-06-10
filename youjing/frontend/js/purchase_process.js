@@ -524,6 +524,15 @@ const purchase_process_before_save = (evt_id, recordset) => {
 }
 _.evts.on(_.evtids.RECORD_BEFORE_SAVE, purchase_process_before_save, '采购跟单')
 
+const purchase_process_after_save = (evt_id, recordset) => {
+    _.http.post('/api/saier/purchase_process/save/after', {}).then(res => {
+        
+    }).catch(err => {
+        console.log(err)
+        _.ui.message.error(err.msg)
+    })
+}
+_.evts.on(_.evtids.RECORD_AFTER_SAVE, purchase_process_after_save, '采购跟单')
 
 function purchase_process_table_new_after(evt_id, table, recordset) {
     if (table.group == '进仓资料') {
