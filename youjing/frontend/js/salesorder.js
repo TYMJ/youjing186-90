@@ -6,7 +6,7 @@ const salesorder_before_save = (evt_id, recordset) => {
             return
         }
         if (recordset.val('汇    率') == 1) {
-            _.ui.message.error('汇率为rmb和美金比值');
+            _.ui.message.warning('请注意,汇率为rmb和美金比值');
         }
         let zhmjhl = 1;
         if (recordset.val('转美元汇率') <=0) {
@@ -97,6 +97,7 @@ const salesorder_before_save = (evt_id, recordset) => {
             let mldx = recordset.val('毛利底线');
             let bjql = recordset.val('审批结果');
             let khmc = recordset.val('客户名称');
+            let hthm = recordset.val('合同号码');
             let a = recordset.val('合同日期');
             let hr2 = recordset.val('贸易国别');
             let yjhb = recordset.val('所属地区');
@@ -177,6 +178,8 @@ const salesorder_before_save = (evt_id, recordset) => {
                 }
                 if (r[recordset.module.field_by_full_name(n + '.产品资料.业务人员').db.name] == '') {
                     r[recordset.module.field_by_full_name(n + '.产品资料.业务人员').db.name] = recordset.val('业务人员');
+                }
+                if (r[recordset.module.field_by_full_name(n + '.产品资料.外销部门').db.name] == '') {
                     r[recordset.module.field_by_full_name(n + '.产品资料.外销部门').db.name] = recordset.val('外销部门');
                 }
                 r[recordset.module.field_by_full_name(n + '.产品资料.合同业务path').db.name] = recordset.val('业务');
@@ -194,7 +197,8 @@ const salesorder_before_save = (evt_id, recordset) => {
                     r[recordset.module.field_by_full_name(n + '.产品资料.预计船期').db.name] = yjcq;
                 }
                 if (r[recordset.module.field_by_full_name(n + '.产品资料.外销唯一字段').db.name] == '') {
-                    r[recordset.module.field_by_full_name(n + '.产品资料.外销唯一字段').db.name] = r.rid;
+                    // r[recordset.module.field_by_full_name(n + '.产品资料.外销唯一字段').db.name] = r.rid;
+                    r[recordset.module.field_by_full_name(n + '.产品资料.外销唯一字段').db.name] = hthm + new Date().format('yyyyMMddhhmmss') + i;
                 }
                 if (r[recordset.module.field_by_full_name(n + '.产品资料.预计船期').db.name] != '' && r[recordset.module.field_by_full_name(n + '.产品资料.预计船期').db.name] != yjcq) {
                     let jn = ryn.indexOf(r[recordset.module.field_by_full_name(n + '.产品资料.预计船期').db.name]);
@@ -513,6 +517,11 @@ const salesorder_field_change = (evt_id, opts) => {
     } = opts;
     let row = current_record;
     let n = module.name
+    if (field.full_name == n + '.审批结果') {
+        if (recordset.val('审批申请')==_.user.username){
+            _.platform.active.toolbar.dicts.save.disabled = false;
+        }
+    }
     if (field.full_name == n + '.更改合计') {
         if (recordset.val('更改合计') > 0 && recordset.val('更改合计') > recordset.val('当前更改数')) {
             _.ui.message.error('请注意采购合同需下单数大于合同数量');
@@ -2228,6 +2237,16 @@ const salesorder_field_change = (evt_id, opts) => {
             }
         }
     }
+    if (field.full_name == n + '.货币代码' && value != '') {
+        _.http.post("/api/saier/salesorder/get/exchange", {
+            xsbz: recordset.val('货币代码'),
+        }).then(res => {
+            recordset.val('汇    率', res.data, row);
+        }).catch(err => {
+            _.ui.message.error(err.msg);
+            console.log(err);
+        });
+    }
     if (field.full_name == n + '.货币代码' || field.full_name == n + '.RMB客户' || field.full_name == n + '.汇    率') {
         _.http.post("/api/saier/salesorder/hbdm/change", {
             xsbz: recordset.val('货币代码'),
@@ -2478,7 +2497,9 @@ const sales_order_Form_Show = (evt_id, form) => {
             "divided": true
         })
     }
-
+    if (form.is_editor) {
+        form.toolbar.show('workflow_approve', false)
+    }
     if (btns.length > 0) {
         form.toolbar.insert([{
             "name": 'export_btn',
@@ -2525,16 +2546,21 @@ const sales_order_EditorChildShow = (evt_id, form) => {
             "icon": 'any-server-update',
             "divided": true
         })
+        btns.push({
+            name: 'import_photo_btn',
+            caption: '导入Excel',
+            icon: 'any-server-update',
+        })
         // form.toolbar.add([{
         //     "name": 'import_photo_btn',
         //     "caption": 'Excel导入',
         //     "icon": 'any-server-update',
         // }]);
-        form.toolbar.add([{
-            "name": 'bCopyFromExcel',
-            "caption": '粘贴数据',
-            "icon": 'any-server-update',
-        }]);
+        // form.toolbar.add([{
+        //     "name": 'bCopyFromExcel',
+        //     "caption": '粘贴数据',
+        //     "icon": 'any-server-update',
+        // }]);
         form.toolbar.add([{
             "name": 'export_btn',
             "caption": '扩展',
@@ -2554,6 +2580,15 @@ const sales_order_form_BtnClick = (evt_id, btn, form) => {
             "group_name": form.group.value.name,
             "run_fill": true,
         });
+    }
+    if (btn.name == 'import_photo_btn') {
+        _.ui.show_dialog('photo_from_excel', {
+            rid: form.current_rid,
+            group: '外销合同.产品资料',
+            option: 'append',
+            kfield: 'bjhh',
+            pfield: 'yytp',
+        })
     }
     if (btn.name == 'update_chrq_btn') {
         if (recordset.val('审批结果') != '通过' || recordset.val('审批申请') == _.user.username) {
@@ -3121,21 +3156,69 @@ _.evts.on([_.evtids.RECORD_TABLE_BEFORE_DELETE], sales_order_table_delete_before
 
 
 const sales_order_after_save = (evt_id, recordset) => {
-    if (recordset.val('wf_status') == 1 || recordset.val('wf_status') == 2) return
+    // if (recordset.val('wf_status') == 1 || recordset.val('wf_status') == 2) return
+    // if (recordset.val('审批申请') == '') return
+    // _.ui.confirm('是否提交审批？').then(() => {
+    //     _.http.post('/api/saier/workflow/start', {
+    //         rid: recordset.val('rid'),
+    //         module: recordset.module.name,
+    //         flow_name: '外销合同'
+    //     }).then(res => {
+    //         recordset.val('wf_status',1)
+    //         _.platform.active.reload_data()
+    //     }).catch(res => {
+    //         _.ui.message.error(res.msg);
+    //         console.log(res);
+    //     });
+    // })
     if (recordset.val('审批申请') == '') return
-    _.ui.confirm('是否提交审批？').then(() => {
+    if ((recordset.val('wf_status') == 0 || recordset.val('wf_status') == 3) && recordset.val('业务人员') == _.user.username){
         _.http.post('/api/saier/workflow/start', {
             rid: recordset.val('rid'),
             module: recordset.module.name,
-            flow_name: '外销合同'
-        }).then(res => {
-            recordset.val('wf_status',1)
-            _.platform.active.reload_data()
-        }).catch(res => {
-            _.ui.message.error(res.msg);
-            console.log(res);
-        });
-    })
+            flow_name: '外销合同',
+        }).then((res) => {
+            recordset.val('wf_status', 1)
+            // _.platform.active.reload_data()
+            _.platform.active.close()
+        }).catch((res) => {
+            _.ui.message.error(res.msg)
+            console.log(res)
+        })
+    } else if (recordset.val('wf_status') == 1 && recordset.val('审批申请') == _.user.username) {
+        if (recordset.val('审批结果') == '' || recordset.val('审批结果') == '待审批') {
+            return
+        }
+        let status = 1
+        let memo = ''
+        if (recordset.val('审批结果') == '不通过' || recordset.val('审批结果') == '取消订单') {
+            status = 2
+            memo = recordset.val('未批原因')
+        }
+        _.http.post('/api/saier/audit/save/after', {
+            rid: recordset.val('rid'),
+            module: recordset.module.name
+        }).then(r => {
+            console.log('审批保存结果', r)
+            let instance = r.data.instance_rid
+            let task_id = r.data.task_rid
+            _.http.post('/api/workflow/task/flow', {
+                instance: instance,
+                status: status,
+                task_id: task_id,
+                memo: memo
+            }).then(res => {
+                _.platform.active.reload_data()
+                // _.platform.active.close()
+            }).catch((res) => {
+                console.log(res)
+                _.ui.message.error(res.msg)
+            })
+        }).catch((e) => {
+            console.log(e)
+            _.ui.message.error(e.msg)
+        })
+    }
 }
 _.evts.on(_.evtids.RECORD_AFTER_SAVE, sales_order_after_save, '外销合同')
 
