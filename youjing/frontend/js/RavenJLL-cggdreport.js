@@ -55,11 +55,11 @@ const generate_mark_labels = async (recordset) => {
                     const res = await _.http.post(
                         '/api/amazon/tsmt/generate',
                         formData, {
-                            headers: {
-                                'Content-Type': 'multipart/form-data'
-                            },
-                            timeout: 600000 // 10分钟超时
-                        }
+                        headers: {
+                            'Content-Type': 'multipart/form-data'
+                        },
+                        timeout: 600000 // 10分钟超时
+                    }
                     );
 
                     if (res.code !== 1) {
@@ -78,8 +78,8 @@ const generate_mark_labels = async (recordset) => {
                             setTimeout(() => {
                                 _.http.download(
                                     "/api/file/get", {
-                                        file: filePath
-                                    },
+                                    file: filePath
+                                },
                                     `唛头_${index + 1}.pdf`
                                 );
                             }, index * 500);
@@ -118,11 +118,11 @@ const generate_mark_labels = async (recordset) => {
                 const res = await _.http.post(
                     '/api/amazon/tsmt/generate',
                     formData, {
-                        headers: {
-                            'Content-Type': 'multipart/form-data'
-                        },
-                        timeout: 600000 // 10分钟超时
-                    }
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    },
+                    timeout: 600000 // 10分钟超时
+                }
                 );
 
                 if (res.code !== 1) {
@@ -141,8 +141,8 @@ const generate_mark_labels = async (recordset) => {
                         setTimeout(() => {
                             _.http.download(
                                 "/api/file/get", {
-                                    file: filePath
-                                },
+                                file: filePath
+                            },
                                 `唛头_${index + 1}.pdf`
                             );
                         }, index * 500);
@@ -293,8 +293,8 @@ const cggd_form_BtnClick = (evt_id, btn, form) => {
                             setTimeout(() => {
                                 _.http.download(
                                     "/api/file/get", {
-                                        file: filePath
-                                    },
+                                    file: filePath
+                                },
                                     `${index + 1}_${ckmc}_${jcbh}.xlsx`
                                 );
                             }, index * 500); // 每隔500ms下载一个
@@ -305,8 +305,8 @@ const cggd_form_BtnClick = (evt_id, btn, form) => {
                         const fileExt = tp === '4' ? '.pdf' : '.xlsx'; // 根据类型决定扩展名
                         _.http.download(
                             "/api/file/get", {
-                                file: data
-                            },
+                            file: data
+                        },
                             `${ckmc}_${jcbh}${fileExt}`
                         );
                         _.ui.message.success('导出成功');
@@ -413,113 +413,113 @@ const cggd_form_BtnClick = (evt_id, btn, form) => {
             }
         })();
     }
-    
+
     if (btn.name == 'ammt') {
-    (async () => {
-        try {
-            const rids = getCurrentSelectedRids(form);
-            if (rids.length === 0) {
-                _.ui.message.error('请先选择要操作的记录!');
-                return;
-            }
-
-            // ---- 1. 输入产品编号（空=打印全部） ----
-            let zycpbh = await _.ui.show_input_dialog('请输入产品编号,如需打印所有则不用填', '');
-            if (zycpbh === null) return;
-            zycpbh = (zycpbh || '').trim();
-
-            // ---- 2. 选择模式：1=当前, 2=批量 ----
-            const da2Input = await _.ui.show_input_dialog('1为当前信息,输2为批量,默认当前', '1');
-            if (da2Input === null) return;
-            const da2 = String(da2Input || '').trim() === '2' ? '2' : '1';
-
-            if (da2 === '2' && rids.length === 0) {
-                _.ui.message.error('批量模式请先选择订单');
-                return;
-            }
-
-            // ---- 3. PDF / 批量PDF 判断 ----
-            const tpInput = await _.ui.show_input_dialog('PDF输1,批量PDF输2,不输为1', '1');
-            if (tpInput === null) return;
-            let tp = String(tpInput || '').trim();
-            if (tp !== '1' && tp !== '2') {
-                tp = '1';
-            }
-
-            // ---- 4. 批量PDF时输入保存路径前缀 ----
-            let filenametp = '';
-            if (tp === '2') {
-                const pathInput = await _.ui.show_input_dialog('请选择文件保存路径前缀（如 d:\\批量导出\\）', 'd:\\');
-                if (pathInput === null) return;
-                filenametp = String(pathInput || '').trim() || 'd:\\';
-            }
-
-            // ---- 5. 组装参数 ----
-            const formData = new FormData();
-            formData.append('zycpbh', zycpbh);
-            formData.append('da2', da2);
-            formData.append('tp', tp);
-            if (filenametp) {
-                formData.append('filenametp', filenametp);
-            }
-
-            if (da2 === '1') {
-                const current_rid = (form.current_rid && form.current_rid.value)
-                    ? form.current_rid.value
-                    : (rids[0] || '');
-                if (!current_rid) {
-                    _.ui.message.error('未获取到当前记录编号');
+        (async () => {
+            try {
+                const rids = getCurrentSelectedRids(form);
+                if (rids.length === 0) {
+                    _.ui.message.error('请先选择要操作的记录!');
                     return;
                 }
-                formData.append('rid', current_rid);
-            } else {
-                formData.append('rids', JSON.stringify(rids));
+
+                // ---- 1. 输入产品编号（空=打印全部） ----
+                let zycpbh = await _.ui.show_input_dialog('请输入产品编号,如需打印所有则不用填', '');
+                if (zycpbh === null) return;
+                zycpbh = (zycpbh || '').trim();
+
+                // ---- 2. 选择模式：1=当前, 2=批量 ----
+                const da2Input = await _.ui.show_input_dialog('1为当前信息,输2为批量,默认当前', '1');
+                if (da2Input === null) return;
+                const da2 = String(da2Input || '').trim() === '2' ? '2' : '1';
+
+                if (da2 === '2' && rids.length === 0) {
+                    _.ui.message.error('批量模式请先选择订单');
+                    return;
+                }
+
+                // ---- 3. PDF / 批量PDF 判断 ----
+                const tpInput = await _.ui.show_input_dialog('PDF输1,批量PDF输2,不输为1', '1');
+                if (tpInput === null) return;
+                let tp = String(tpInput || '').trim();
+                if (tp !== '1' && tp !== '2') {
+                    tp = '1';
+                }
+
+                // ---- 4. 批量PDF时输入保存路径前缀 ----
+                let filenametp = '';
+                if (tp === '2') {
+                    const pathInput = await _.ui.show_input_dialog('请选择文件保存路径前缀（如 d:\\批量导出\\）', 'd:\\');
+                    if (pathInput === null) return;
+                    filenametp = String(pathInput || '').trim() || 'd:\\';
+                }
+
+                // ---- 5. 组装参数 ----
+                const formData = new FormData();
+                formData.append('zycpbh', zycpbh);
+                formData.append('da2', da2);
+                formData.append('tp', tp);
+                if (filenametp) {
+                    formData.append('filenametp', filenametp);
+                }
+
+                if (da2 === '1') {
+                    const current_rid = (form.current_rid && form.current_rid.value)
+                        ? form.current_rid.value
+                        : (rids[0] || '');
+                    if (!current_rid) {
+                        _.ui.message.error('未获取到当前记录编号');
+                        return;
+                    }
+                    formData.append('rid', current_rid);
+                } else {
+                    formData.append('rids', JSON.stringify(rids));
+                }
+
+                // ---- 6. 调用后端 ----
+                _.ui.show_loading_dialog('正在生成AMAZON唛头...');
+
+                const res = await _.http.post('/api/amazon/tsmt/generate', formData, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    },
+                    timeout: 600000
+                });
+
+                if (res.code !== 1) {
+                    _.ui.error_message(res.msg || 'AMAZON唛头生成失败');
+                    return;
+                }
+
+                // 参考 RavenJLL-cggdreport.js 风格读取返回结构
+                const files = res.data && res.data.files ? res.data.files : [];
+                const count = res.data && typeof res.data.count === 'number' ? res.data.count : files.length;
+
+                console.log('AMAZON唛头生成成功，文件数:', count);
+
+                if (!Array.isArray(files) || files.length === 0) {
+                    _.ui.message.warning('未生成文件，请检查数据');
+                    return;
+                }
+
+                // ---- 7. 批量下载 PDF ----
+                files.forEach((filePath, index) => {
+                    setTimeout(() => {
+                        _.http.download('/api/tmp/file/get', {
+                            file: filePath
+                        }, `AMAZON唛头_${index + 1}.pdf`);
+                    }, index * 300);
+                });
+
+                _.ui.message.success(`AMAZON唛头生成完成，共${count}个PDF文件`);
+
+            } catch (err) {
+                console.error('AMAZON唛头生成异常:', err);
+                _.ui.error_message(err.msg || err.message || 'AMAZON唛头生成异常');
+            } finally {
+                _.ui.hide_loading_dialog();
             }
-
-            // ---- 6. 调用后端 ----
-            _.ui.show_loading_dialog('正在生成AMAZON唛头...');
-
-            const res = await _.http.post('/api/amazon/tsmt/generate', formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                },
-                timeout: 600000
-            });
-
-            if (res.code !== 1) {
-                _.ui.error_message(res.msg || 'AMAZON唛头生成失败');
-                return;
-            }
-
-            // 参考 RavenJLL-cggdreport.js 风格读取返回结构
-            const files = res.data && res.data.files ? res.data.files : [];
-            const count = res.data && typeof res.data.count === 'number' ? res.data.count : files.length;
-
-            console.log('AMAZON唛头生成成功，文件数:', count);
-
-            if (!Array.isArray(files) || files.length === 0) {
-                _.ui.message.warning('未生成文件，请检查数据');
-                return;
-            }
-
-            // ---- 7. 批量下载 PDF ----
-            files.forEach((filePath, index) => {
-                setTimeout(() => {
-                    _.http.download('/api/tmp/file/get', {
-                        file: filePath
-                    }, `AMAZON唛头_${index + 1}.pdf`);
-                }, index * 300);
-            });
-
-            _.ui.message.success(`AMAZON唛头生成完成，共${count}个PDF文件`);
-
-        } catch (err) {
-            console.error('AMAZON唛头生成异常:', err);
-            _.ui.error_message(err.msg || err.message || 'AMAZON唛头生成异常');
-        } finally {
-            _.ui.hide_loading_dialog();
-        }
-    })();
+        })();
     }
 
 
@@ -528,7 +528,7 @@ const cggd_form_BtnClick = (evt_id, btn, form) => {
 
 
 
-                
+
     if (btn.name == 'plht') {
         (async () => {
             try {
@@ -578,7 +578,8 @@ const cggd_form_BtnClick = (evt_id, btn, form) => {
                     setTimeout(() => {
                         _.http.download('/api/file/get', {
                             file: filePath
-                        }, `采购总合同_${index + 1}${ext}`);
+                            // }, `采购总合同_${index + 1}${ext}`);
+                        }, filePath.split("/").slice(-1)[0]);
                     }, index * 300);
                 });
 

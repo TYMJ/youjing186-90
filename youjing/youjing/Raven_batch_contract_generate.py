@@ -9,6 +9,7 @@ import io
 
 from openpyxl import load_workbook
 from openpyxl.drawing.image import Image as XLImage
+from openpyxl.styles import Font
 
 from openpyxl import load_workbook as _openpyxl_load_workbook
 
@@ -486,6 +487,7 @@ def _fill_main_sheet(ws, first_line, totals, line_count, ctx, sign_path, anti_co
 
     ws["B15"] = first_line.get("khhh") or first_line.get("bjhh")
     ws["D15"] = f"{first_line.get('zwpm', '')}\n{first_line.get('cpgg', '')}"
+    ws["F15"] = first_line.get("zhwbzh", "")
     ws["J15"] = first_line.get("wxrl", "")
     ws["K15"] = first_line.get("zwdw", "")
     ws["L15"] = zxs
@@ -494,6 +496,8 @@ def _fill_main_sheet(ws, first_line, totals, line_count, ctx, sign_path, anti_co
     ws["P15"] = zjg
 
     ws["F16"] = first_line.get("cpsm", "")
+
+    ws["N16"].font = Font(color="FF0000")
     ws["N16"] = f"请注意开票货源地为：{first_line.get('hyd', '')}\n本合同为附页子合同的总合同，共计{line_count}个子合同"
 
     # B16插入产品图片：先查专属产品表，没有再查专业产品表
@@ -534,7 +538,7 @@ def _fill_main_sheet(ws, first_line, totals, line_count, ctx, sign_path, anti_co
     if first_line.get("zhwbgpm") and str(first_line.get("zhwbgpm")) != "无":
         ws["O18"] = f"开票品名: {first_line.get('zhwbgpm', '')}{first_line.get('zzsl', '')}%"
 
-    ws["D25"] = f"{zxs}箱"
+    ws["D25"] = f"{int(zxs)}箱"
 
     ws["B48"] = f"跟单人员: {gd.get('ryxm', '')}({gd.get('lxdh', '')}/{gd.get('ydhm', '')})"
     ws["J48"] = f"采购员: {cg.get('ryxm', '')}({cg.get('lxdh', '')}/{cg.get('ydhm', '')})"
