@@ -898,13 +898,12 @@ const purchase_process_Form_Show = (evt_id, form) => {
             "icon": 'any-function',
             "divided": true
         })
-        // 2026-6-10 注释掉报表打印按钮，后续如果需要再放开: 没有具体的报表打印代码，先隐藏此按钮，避免用户误点
-        // btns.push({
-        //     "name": 'report_print_btn',
-        //     "caption": '报表打印',
-        //     "icon": 'any-server-update',
-        //     "divided": true
-        // })
+        btns.push({
+            "name": 'report_print_btn',
+            "caption": '报表打印',
+            "icon": 'any-server-update',
+            "divided": true
+        })
     }
     if (btns.length == 0) {
         return;
