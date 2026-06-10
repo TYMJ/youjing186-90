@@ -78,9 +78,9 @@ const purchase_process_field_change = (evt_id, opts) => {
     let username = _.user.username
     let m = module.name
     let fields = [m + '.产品资料.采购单价', m + '.产品资料.内盒装箱量', m + '.产品资料.内盒/外箱', m + '.产品资料.外箱装箱量', m + '.产品资料.开票工厂',
-        m + '.产品资料.组织机构代码', m + '.产品资料.开票联系人', m + '.产品资料.开票电话', m + '.产品资料.产品规格', m + '.产品资料.增值税率',
-        m + '.产品资料.退税率', m + '.产品资料.货 源 地', m + '.产品资料.开票点数', m + '.产品资料.是否含税',
-        m + '.生产厂家', m + '.结算方式', m + '.货 源 地'
+    m + '.产品资料.组织机构代码', m + '.产品资料.开票联系人', m + '.产品资料.开票电话', m + '.产品资料.产品规格', m + '.产品资料.增值税率',
+    m + '.产品资料.退税率', m + '.产品资料.货 源 地', m + '.产品资料.开票点数', m + '.产品资料.是否含税',
+    m + '.生产厂家', m + '.结算方式', m + '.货 源 地'
     ];
     if (fields.indexOf(field.full_name) !== -1) {
         recordset.val('修改识别', '是')
@@ -156,9 +156,9 @@ const purchase_process_field_change = (evt_id, opts) => {
         if (bztj > 0) {
             let bztj1 = bztj * 0.2;
             if (recordset.val('产品资料.外箱体积') > bztj) {
-                if (recordset.val('产品资料.外箱体积') - bztj > bztj1) recordset.val('产品资料.外箱体积', round(bztj,3));
+                if (recordset.val('产品资料.外箱体积') - bztj > bztj1) recordset.val('产品资料.外箱体积', round(bztj, 3));
             } else {
-                if (bztj - recordset.val('产品资料.外箱体积') > bztj1) recordset.val('产品资料.外箱体积', round(bztj,3));
+                if (bztj - recordset.val('产品资料.外箱体积') > bztj1) recordset.val('产品资料.外箱体积', round(bztj, 3));
             }
         }
     }
@@ -216,7 +216,7 @@ const purchase_process_field_change = (evt_id, opts) => {
                     }
                 }
             } else {
-                if (jcsj == '' || jcsj == null) {} else {
+                if (jcsj == '' || jcsj == null) { } else {
                     _.ui.message.error('进仓时间不符请修正(产品进仓时间和主要信息中进仓时间要一致,并不能为空!');
                     recordset.val('产品资料.进仓时间', '')
                 }
@@ -421,8 +421,8 @@ const purchase_process_before_save = (evt_id, recordset) => {
         let v = t.view_data;
         for (let r of v) {
             if (r.sfhs == '是' && (r.zzsl == 0 || r.zzsl == undefined || r.zhwbgpm == '' || r.zhwbgpm == '无' || r.zhwbgpm == undefined ||
-                    r.hgbm == '' || r.bgjldw == '' || r.kpgc == '' || r.hyd == '' ||
-                    r.hgbm == undefined || r.bgjldw == undefined || r.kpgc == undefined || r.hyd == undefined)) {
+                r.hgbm == '' || r.bgjldw == '' || r.kpgc == '' || r.hyd == '' ||
+                r.hgbm == undefined || r.bgjldw == undefined || r.kpgc == undefined || r.hyd == undefined)) {
                 if (recordset.val('货 源 地') != '') {
                     r.hyd = recordset.val('货 源 地')
                     t.push_modi_rid(r.rid)
@@ -526,7 +526,7 @@ _.evts.on(_.evtids.RECORD_BEFORE_SAVE, purchase_process_before_save, '采购跟�
 
 const purchase_process_after_save = (evt_id, recordset) => {
     _.http.post('/api/saier/purchase_process/save/after', {}).then(res => {
-        
+
     }).catch(err => {
         console.log(err)
         _.ui.message.error(err.msg)
@@ -622,7 +622,7 @@ function purchase_process_table_delete_before(evt_id, table, recordset) {
 _.evts.on([_.evtids.RECORD_TABLE_BEFORE_DELETE], purchase_process_table_delete_before, '采购跟单')
 
 
-const purchase_process_form_BtnClick = async(evt_id, btn, form) => {
+const purchase_process_form_BtnClick = async (evt_id, btn, form) => {
     let recordset = form.recordset;
     let m = form.module.name;
     let username = _.user.username
@@ -639,7 +639,7 @@ const purchase_process_form_BtnClick = async(evt_id, btn, form) => {
             rid: recordset.val('rid'),
             jcrq: recordset.val('预计进仓'),
             module: recordset.module.name
-        }).then(function (res) {}).catch(err => {
+        }).then(function (res) { }).catch(err => {
             _.ui.message.error(err.msg)
             console.log(err)
             return
@@ -756,36 +756,36 @@ const purchase_process_form_BtnClick = async(evt_id, btn, form) => {
             return;
         }
         let check = await _.http.post('/api/saier/purchase_process/batch/cgrk/check', {
-            }).then(function (res) {
-                return true
-            }).catch(err => {
-                console.log(err)
-                _.ui.message.error(err.msg)
-                return false  
-            })
+        }).then(function (res) {
+            return true
+        }).catch(err => {
+            console.log(err)
+            _.ui.message.error(err.msg)
+            return false
+        })
         if (!check) {
             return;
         }
         let ckmc = await _.ui.show_input_select_dialog('请输入仓库名称', '', ['义乌仓库', '宁波志恒', '汕头仓库', '宁波龙和', '宁波万纬']).then(val => {
-                if (val == null || val == '') {
-                    _.ui.message.error('仓库名称不能为空!')
-                    return '';
-                }
-                return val
-            }).catch(err => {
-                return ''
-            })
+            if (val == null || val == '') {
+                _.ui.message.error('仓库名称不能为空!')
+                return '';
+            }
+            return val
+        }).catch(err => {
+            return ''
+        })
         if (ckmc == '') {
             return;
         }
         let jcrq = await _.ui.show_input_date_dialog('请输入进仓日期', null).then(date => {
-                if (date == null || date == '') {
-                    return '';
-                }
-                return date
-            }).catch(err => {
-                return ''
-            })
+            if (date == null || date == '') {
+                return '';
+            }
+            return date
+        }).catch(err => {
+            return ''
+        })
         _.http.post('/api/saier/purchase_process/batch/cgrk/btn', {
             rids: rids,
             jcrq: jcrq,
@@ -794,8 +794,8 @@ const purchase_process_form_BtnClick = async(evt_id, btn, form) => {
             let d = res.data;
             if (d && d != '') {
                 _.http.download("/api/tmp/file/get", {
-                        file: d
-                    },
+                    file: d
+                },
                     ckmc + new Date().format('yyyyMMddhhmm') + '.zip'
                 );
             }
@@ -805,7 +805,7 @@ const purchase_process_form_BtnClick = async(evt_id, btn, form) => {
         })
     }
     if (btn.name == 'report_print_btn') {
-        if (form.recordset.modified == true){
+        if (form.recordset.modified == true) {
             return _.ui.message.error('请先保存数据再进行打印!')
         }
         let WarehouseName = recordset.val('仓库名称');
@@ -893,11 +893,18 @@ const purchase_process_Form_Show = (evt_id, form) => {
             "divided": true
         })
         btns.push({
-            "name": 'report_print_btn',
-            "caption": '报表打印',
-            "icon": 'any-server-update',
+            "name": 'jcd',
+            "caption": '进仓单',
+            "icon": 'any-function',
             "divided": true
         })
+        // 2026-6-10 注释掉报表打印按钮，后续如果需要再放开: 没有具体的报表打印代码，先隐藏此按钮，避免用户误点
+        // btns.push({
+        //     "name": 'report_print_btn',
+        //     "caption": '报表打印',
+        //     "icon": 'any-server-update',
+        //     "divided": true
+        // })
     }
     if (btns.length == 0) {
         return;

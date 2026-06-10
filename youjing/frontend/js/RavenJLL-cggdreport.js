@@ -236,12 +236,13 @@ const cggd_form_BtnClick = (evt_id, btn, form) => {
             //             return;
             //         }
 
-            let rids = form.current_rids.value
-            if (rids.length == 0) {
-                if (form.current_rid.value != '' && form.current_rid.value != null) {
-                    rids.push(form.current_rid.value)
-                }
-            }
+            // let rids = form.current_rids.value
+            // if (rids.length == 0) {
+            //     if (form.current_rid.value != '' && form.current_rid.value != null) {
+            //         rids.push(form.current_rid.value)
+            //     }
+            // }
+            let rids = getCurrentSelectedRids(form)
             if (rids.length == 0) {
                 _.ui.message.error('请先选择要操作的记录!')
                 return;
