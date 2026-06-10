@@ -503,7 +503,7 @@ def _fill_sheet3(ws, header, product, gs, gsyw, qsy, qsr, qsn, best_price):
 
 def _fill_sheet4(ws, header, product, gs, gsyw, hbdm, qsy, qsr, qsn):
     khmc = get_field_value(header, "khmc")
-    _add_picture_at(ws, _col_row_to_coord(2, 44), _image_path_from_kh(khmc), x_pad=4, y_pad=4, width=120, height=80)
+    _add_picture_at(ws, _col_row_to_coord(2, 44), _image_path_from_kh(khmc), x_pad=15, y_pad=4, width=140, height=140)
     _add_picture_at(
         ws, _col_row_to_coord(8, 46), _image_path_from_tpzx(f"{gs}蓝章名"), x_pad=8, y_pad=4, width=130, height=90
     )

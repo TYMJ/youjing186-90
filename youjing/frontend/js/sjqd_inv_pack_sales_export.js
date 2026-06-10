@@ -31,7 +31,7 @@ const sjqd_inv_pack_sales_export_BtnClick = async (evt_id, btn, form) => {
         _.ui.message.error('请先打开当前商检清单记录!')
         return
     }
-
+    _.ui.show_loading_dialog('正在批量生成INV pack sales...');
     await _.http.post('/api/saier/commodity_inspection/sjqd_inv_sales/export', {
         rid: rid,
         hr: '2',
@@ -48,6 +48,8 @@ const sjqd_inv_pack_sales_export_BtnClick = async (evt_id, btn, form) => {
     }).catch(err => {
         _.ui.message.error(err.msg || String(err))
         console.log(err)
+    }).finally(() => {
+        _.ui.hide_loading_dialog()
     })
 }
 
