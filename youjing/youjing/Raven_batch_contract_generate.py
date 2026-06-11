@@ -9,7 +9,7 @@ import io
 
 from openpyxl import load_workbook
 from openpyxl.drawing.image import Image as XLImage
-from openpyxl.styles import Font
+from openpyxl.styles import Font, Alignment
 
 from openpyxl import load_workbook as _openpyxl_load_workbook
 
@@ -426,6 +426,41 @@ def _build_context(first_line, buyer, company):
     }
 
 
+def _fit_row_text(ws, row, col_letters, max_h=120, merged_chars=None):
+    """长文本：换行 + 缩字号 + 撑行高。merged_chars 指定合并单元格的有效列宽。"""
+    wrap = Alignment(horizontal="center", vertical="center", wrap_text=True)
+    coords = [f"{c}{row}" for c in col_letters]
+    for coord in coords:
+        ws[coord].alignment = wrap
+    row_h, font_size = 15, 11
+    merged_chars = merged_chars or {}
+    for try_size in (11, 10, 9):
+        h, pt = 15, try_size + 4
+        for col in col_letters:
+            t = str(ws[f"{col}{row}"].value or "")
+            if not t:
+                continue
+            if col in merged_chars:
+                cols = max(8, int(merged_chars[col] * try_size / 11))
+            else:
+                cd = ws.column_dimensions.get(col)
+                cols = max(8, int((cd.width if cd and cd.width else 8.43) * 50 / 11 * try_size / 11))
+            en = sum(1 for ch in t if ord(ch) < 128)
+            wu = (len(t) - en) * 2 + en
+            h = max(h, min(max_h, (wu // cols + t.count("\n") + 1) * pt + 20))
+        if h <= max_h or try_size == 9:
+            row_h, font_size = h, try_size
+            break
+    for coord in coords:
+        old = ws[coord].font
+        ws[coord].font = Font(
+            name=old.name if old and old.name else "宋体",
+            size=font_size,
+            color=old.color if old else None,
+        )
+    ws.row_dimensions[row].height = max(float(ws.row_dimensions[row].height or 15), row_h)
+
+
 def _fill_detail_sheet(ws, lines, company, cpbh_show, sign_path, hthm_khht_list):
     zxs, zsl, zjg, _ = _calc_totals(lines)
     is_jingchi = "景驰" in (company or "")
@@ -449,6 +484,8 @@ def _fill_detail_sheet(ws, lines, company, cpbh_show, sign_path, hthm_khht_list)
         if is_jingchi:
             ws[f"M{excel_row}"] = _get_dforder(row.get("wxht"))
 
+        _fit_row_text(ws, excel_row, ("B", "C", "D", "E", "F", "L"))
+
     head_cell = "N1" if is_jingchi else "A1"
     ws[head_cell] = f"合同编号：{cpbh_show}项下附页合同具体内容如下："
     ws["A1"] = f"合同编号：{cpbh_show}项下附页合同具体内容如下："
@@ -459,11 +496,16 @@ def _fill_detail_sheet(ws, lines, company, cpbh_show, sign_path, hthm_khht_list)
     ws[f"H{sum_row}"] = zsl
     ws[f"J{sum_row}"] = zjg
 
-    ws[f"B{sum_row + 3}"] = "需 方（签字盖章）"
-    ws[f"F{sum_row + 3}"] = "供 方（签字盖章）"
+    sign_row = sum_row + 3
+    ws[f"B{sign_row}"] = "需 方（签字盖章）"
+    ws[f"F{sign_row}"] = "供 方（签字盖章）"
+    _fit_row_text(ws, sign_row, ("B", "F"), max_h=80)
+    ws.row_dimensions[sign_row].height = max(float(ws.row_dimensions[sign_row].height or 15), 60)
 
     if sign_path:
-        _try_add_image(ws, sign_path, f"C{sum_row + 2}")
+        img_row = sum_row + 2
+        ws.row_dimensions[img_row].height = max(float(ws.row_dimensions[img_row].height or 15), 55)
+        _try_add_image(ws, sign_path, f"C{img_row}")
 
 
 def _fill_main_sheet(ws, first_line, totals, line_count, ctx, sign_path, anti_corruption_text):
@@ -497,8 +539,15 @@ def _fill_main_sheet(ws, first_line, totals, line_count, ctx, sign_path, anti_co
 
     ws["F16"] = first_line.get("cpsm", "")
 
-    ws["N16"].font = Font(color="FF0000")
     ws["N16"] = f"请注意开票货源地为：{first_line.get('hyd', '')}\n本合同为附页子合同的总合同，共计{line_count}个子合同"
+
+    _fit_row_text(ws, 16, ("F", "N"), max_h=400, merged_chars={"F": 50, "N": 40})
+    n16_font = ws["N16"].font
+    ws["N16"].font = Font(
+        name=n16_font.name if n16_font and n16_font.name else "宋体",
+        size=n16_font.size if n16_font and n16_font.size else 11,
+        color="FF0000",
+    )
 
     # B16插入产品图片：先查专属产品表，没有再查专业产品表
     item_code = first_line.get("khhh") or first_line.get("bjhh")
