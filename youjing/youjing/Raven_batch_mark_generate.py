@@ -12,6 +12,42 @@ from openpyxl.drawing.image import Image as XLImage
 
 ILLEGAL_CHARS = set('/\\:*?"<>|\r\n')
 
+TMTP_ANCHOR = {
+    "内外箱唛头": "I5",
+    "常规唛头": "A4",
+    "港加特标唛头": "A6",
+    "港加特标加警语唛头": "A6",
+    "多货号唛头": "A10",
+}
+GK_ANCHOR = {
+    "内外箱唛头": "D6",
+    "常规唛头": "E2",
+    "港加特标唛头": "F8",
+    "港加特标加警语唛头": "G6",
+    "多货号唛头": "G10",
+}
+# 模板单元格图片区域参考尺寸（像素），对齐 Pascal AddPicture 缩放留白
+ANCHOR_IMAGE_BOX = {
+    "I5": (110, 85),
+    "A4": (95, 75),
+    "A6": (95, 75),
+    "A10": (95, 75),
+    "D6": (52, 48),
+    "E2": (48, 42),
+    "F8": (52, 48),
+    "G6": (52, 48),
+    "G10": (52, 48),
+    "F3": (42, 38),
+    "D2": (42, 38),
+    "E29": (48, 42),
+    "G45": (48, 42),
+    "G43": (48, 42),
+    "G47": (48, 42),
+    "L24": (48, 42),
+}
+CHECKMARK_IMAGE_BOX = (20, 20)
+PX_TO_EMU = 9525
+
 
 def _safe_filename(text):
     s = str(text or "").strip()
@@ -191,36 +227,30 @@ def _get_wypm_name(cpbh):
 def _get_tpzx_image_path_by_sb(sb):
     rows = run_sql(
         """
-        SELECT path
-        FROM sys_attachment
-        WHERE pid IN (
-            SELECT rid FROM tpzx WHERE sb=:sb
-        )
-        AND path IS NOT NULL
+        SELECT tpmc
+        FROM tpzx
+        WHERE sb=:sb AND tpmc IS NOT NULL AND LENGTH(tpmc) > 5
         LIMIT 1
-    """,
+        """,
         {"sb": str(sb or "")},
     )
     if rows:
-        return str(rows[0].get("path") or "").strip()
+        return _image_path(rows[0].get("tpmc"))
     return ""
 
 
 def _get_tpzx_image_path_by_cpbh(cpbh):
     rows = run_sql(
         """
-        SELECT path
-        FROM sys_attachment
-        WHERE pid IN (
-            SELECT rid FROM tpzx WHERE cpbh=:cpbh
-        )
-        AND path IS NOT NULL
+        SELECT tpmc
+        FROM tpzx
+        WHERE cpbh=:cpbh AND tpmc IS NOT NULL AND LENGTH(tpmc) > 5
         LIMIT 1
-    """,
+        """,
         {"cpbh": str(cpbh or "")},
     )
     if rows:
-        return str(rows[0].get("path") or "").strip()
+        return _image_path(rows[0].get("tpmc"))
     return ""
 
 
@@ -229,12 +259,96 @@ def _abs_upload(path):
     return os.path.join(base, str(path or "").lstrip("/\\"))
 
 
-def _try_add_image(ws, image_abs_path, anchor_cell):
+def _normalize_image_path(path):
+    fp = str(path or "").strip()
+    if not fp:
+        return ""
+    if os.path.isfile(fp):
+        return fp
+    p1 = _abs_upload(fp)
+    if os.path.isfile(p1):
+        return p1
+    rel = fp.lstrip("/\\").replace("\\", "/")
+    if rel != fp:
+        p2 = _abs_upload(rel)
+        if os.path.isfile(p2):
+            return p2
+    return ""
+
+
+def _image_path(raw):
+    s = str(raw or "").strip()
+    if len(s) <= 5:
+        return ""
+    if s.startswith("[") or s.startswith("{"):
+        try:
+            obj = json.loads(s.replace("'", '"'))
+            src = obj[0].get("src", "") if isinstance(obj, list) and obj else obj.get("src", "") if isinstance(obj, dict) else ""
+            return _normalize_image_path(src)
+        except Exception:
+            return ""
+    return _normalize_image_path(s)
+
+
+def _cell_box_px(ws, anchor_cell, pad=3):
+    m = re.match(r"([A-Z]+)(\d+)", str(anchor_cell or "").upper())
+    if not m:
+        return 80, 60
+    col_letter, row_num = m.group(1), int(m.group(2))
+    col_dim = ws.column_dimensions.get(col_letter)
+    col_w = col_dim.width if col_dim and col_dim.width else 8.43
+    row_dim = ws.row_dimensions.get(row_num)
+    row_h = row_dim.height if row_dim and row_dim.height else 15.0
+    w = int(col_w * 7 + 5) - pad * 2
+    h = int(row_h * 96 / 72) - pad * 2
+    return max(10, w), max(10, h)
+
+
+def _try_add_image(ws, image_abs_path, anchor_cell, max_width=None, max_height=None):
+    path = _normalize_image_path(image_abs_path)
+    if not path:
+        return
     try:
-        if not image_abs_path or not os.path.exists(image_abs_path):
+        anchor = str(anchor_cell or "").upper()
+        box = ANCHOR_IMAGE_BOX.get(anchor)
+        if max_width is None and box:
+            max_width, max_height = box
+        if max_width is None or max_height is None:
+            cw, ch = _cell_box_px(ws, anchor_cell)
+            max_width = max_width or cw
+            max_height = max_height or ch
+
+        img = XLImage(path)
+        src_w = max(float(img.width or 1), 1.0)
+        src_h = max(float(img.height or 1), 1.0)
+        scale = min(max_width / src_w, max_height / src_h)
+        if scale > 0:
+            img.width = max(1, int(src_w * scale))
+            img.height = max(1, int(src_h * scale))
+
+        m = re.match(r"([A-Z]+)(\d+)", anchor)
+        if not m:
+            img.anchor = anchor_cell
+            ws.add_image(img)
             return
-        img = XLImage(image_abs_path)
-        img.anchor = anchor_cell
+
+        col_str, row_num = m.group(1), int(m.group(2))
+        col_idx = 0
+        for ch in col_str:
+            col_idx = col_idx * 26 + (ord(ch) - 64)
+        col_idx -= 1
+        row_idx = row_num - 1
+
+        from openpyxl.drawing.spreadsheet_drawing import OneCellAnchor, AnchorMarker
+        from openpyxl.drawing.xdr import XDRPositiveSize2D
+
+        col_off = int(max(0, (max_width - img.width) / 2) * PX_TO_EMU)
+        row_off = int(max(0, (max_height - img.height) / 2) * PX_TO_EMU)
+        marker = AnchorMarker(col=col_idx, row=row_idx, colOff=col_off, rowOff=row_off)
+        img.anchor = OneCellAnchor(
+            _from=marker,
+            ext=XDRPositiveSize2D(cx=int(img.width * PX_TO_EMU), cy=int(img.height * PX_TO_EMU)),
+        )
         ws.add_image(img)
     except Exception:
         pass
@@ -334,12 +448,21 @@ def _fill_by_mark_type(ws, mark_type, data, extra):
 
     elif mark_type == "多货号唛头":
         codes = _split_multi_cpbh(show_code)
+        ck = str(extra.get("checkmark_path") or "")
         row_start = 2 if len(codes) < 15 else 1
         row = row_start
         col_pairs = [("B", "C"), ("F", "G")]
         i = 0
         for code in codes:
             c_mark, c_text = col_pairs[i % 2]
+            if ck:
+                _try_add_image(
+                    ws,
+                    ck,
+                    f"{c_mark}{row}",
+                    max_width=CHECKMARK_IMAGE_BOX[0],
+                    max_height=CHECKMARK_IMAGE_BOX[1],
+                )
             ws[f"{c_text}{row}"] = code
             if i % 2 == 1:
                 row += 1
@@ -398,6 +521,8 @@ async def api_batch_mark_generate(request):
         if not selected_orders:
             return json_result(code=-1, msg="未找到可处理订单")
 
+        checkmark_path = _get_tpzx_image_path_by_cpbh("打勾") if mark_type == "多货号唛头" else ""
+
         files = []
         idx = 0
 
@@ -418,9 +543,9 @@ async def api_batch_mark_generate(request):
                 cxmc = str(prod.get("cxmc") or "").strip()
                 jgby = str(prod.get("jgby") or "").strip()
                 krtm = str(prod.get("krtm") or "").strip()
-                tmtp = str(prod.get("tmtp") or "").strip()
                 czkrhh = str(prod.get("czkrhh") or "").strip()
                 jldw = str(prod.get("jldw") or "").strip()
+                tmtp_path = _image_path(prod.get("tmtp"))
 
                 wb = load_workbook(template_path)
                 ws = wb.active
@@ -439,28 +564,24 @@ async def api_batch_mark_generate(request):
                         "cxmc": cxmc,
                         "jgby": jgby,
                         "jldw": jldw,
+                        "checkmark_path": checkmark_path,
                     },
                 )
 
-                # 产品图（tmtp）优先 zscp.tmtp 作为附件路径
-                if tmtp:
-                    _try_add_image(
-                        ws, _abs_upload(tmtp), "A6" if mark_type in ("港加特标唛头", "港加特标加警语唛头") else "A4"
-                    )
+                # 条码图片（zscp.tmtp）
+                if tmtp_path:
+                    _try_add_image(ws, tmtp_path, TMTP_ANCHOR.get(mark_type, "A4"))
 
                 # 港口图（根据 khht 前2位/前1位在 tpzx.sb 查图）
-                gk2 = khht[:2]
-                gk1 = khht[:1]
-                gk_path = _get_tpzx_image_path_by_sb(gk2) or _get_tpzx_image_path_by_sb(gk1)
+                gk_path = _get_tpzx_image_path_by_sb(khht[:2]) or _get_tpzx_image_path_by_sb(khht[:1])
                 if gk_path:
-                    anchor = "D6" if mark_type == "内外箱唛头" else ("E2" if mark_type == "常规唛头" else "F8")
-                    _try_add_image(ws, _abs_upload(gk_path), anchor)
+                    _try_add_image(ws, gk_path, GK_ANCHOR.get(mark_type, "F8"))
 
                 # 特殊标记图 tsbj
                 if tsbj and mark_type in ("港加特标唛头", "港加特标加警语唛头", "内外箱唛头"):
                     ts_path = _get_tpzx_image_path_by_cpbh(tsbj)
                     if ts_path:
-                        _try_add_image(ws, _abs_upload(ts_path), "F3" if mark_type != "内外箱唛头" else "D2")
+                        _try_add_image(ws, ts_path, "F3" if mark_type != "内外箱唛头" else "D2")
 
                 # 环保图标（PP/LDEP-1/LDPE-2）
                 if env_opt in ("3", "4", "5"):
@@ -468,9 +589,16 @@ async def api_batch_mark_generate(request):
                     flag_path = _get_tpzx_image_path_by_cpbh(flag)
                     if flag_path:
                         if mark_type in ("内外箱唛头", "常规唛头"):
-                            _try_add_image(ws, _abs_upload(flag_path), "E29")
+                            _try_add_image(ws, flag_path, "E29")
+                            if mark_type == "内外箱唛头":
+                                _try_add_image(ws, flag_path, "L24")
                         elif mark_type in ("港加特标唛头", "港加特标加警语唛头", "多货号唛头"):
-                            _try_add_image(ws, _abs_upload(flag_path), "G45")
+                            flag_anchor = "G45"
+                            if str(region_opt) == "2" and mark_type == "多货号唛头":
+                                flag_anchor = "G47"
+                            elif str(region_opt) == "2" and mark_type in ("港加特标唛头", "港加特标加警语唛头"):
+                                flag_anchor = "G43"
+                            _try_add_image(ws, flag_path, flag_anchor)
 
                 cpbh_show = _safe_filename(czkrhh or cpbh)
                 xls_name = f"{filename_prefix}{idx};{cpbh_show} IN {khht}.xlsx"
